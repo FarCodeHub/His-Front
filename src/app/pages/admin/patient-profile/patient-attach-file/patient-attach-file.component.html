@@ -1,0 +1,54 @@
+<div class="row m-3" *transloco="let t">
+
+  <div class="panel no-shadow filter-area">
+    <ul class="list-inline d-flex mb-0">
+
+      <li class="list-inline-item">
+        <c-select label="" [floatLabel]="true" appearance="no-border" [data]="dataColumns" fieldName="title"
+          valueFieldName="field">
+
+        </c-select>
+
+      </li>
+      <li class="list-inline-item flex-fill">
+        <div class="form-outline">
+          <input type="search" name="" value="" placeholder="Type a name" id="search-label" class="form-control" />
+          <label for="search-label" class="form-label"> </label>
+        </div>
+      </li>
+      <li class="list-inline-item"> <button type="button" name="" onclick="" data-action="submit"
+          class="btn btn-sm px-2 py-1"> <i class="icons icon-search">
+          </i> </button> </li>
+    </ul>
+  </div>
+
+
+
+
+  <div class="col-12 uploader">
+
+    <label class="dragdrop">{{t('DragFilesHere')}}</label>
+    <c-button label="{{t('SelectFileAndUpload')}}" [isFlat]="false" (click)="onClick()" color="orange">
+    </c-button>
+    <input type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="multiple" accept="image/*"
+      style="display:none;" />
+
+  </div>
+
+  <div class="row">
+    <div *ngFor="let file of allFiles" class="col-3 mt-5">
+
+      <div class="file-item">
+        <img src="{{baseUrl}}/Images/UploadedFile/{{file.fileFolderName}}" alt="...">
+        <img *ngIf="file.type==2" src="assets/img/DOC-icon.png" alt="document file">
+        <img *ngIf="file.type==1" src="assets/img/PDF-icon.png" alt="pdf file">
+        <div class="card-body">
+          <label class="title">{{file.fileFolderName}}</label>
+          <label class="date">{{file.createTime| date:'yyyy.MM.dd'}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

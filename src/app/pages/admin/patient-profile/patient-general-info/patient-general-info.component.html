@@ -1,0 +1,90 @@
+<div *transloco="let t">
+<c-panel [iconClass]="'far fa-user'" [title]="'General Information'">
+
+    <div class="row">
+
+        <div class="col-12">
+            <c-multi-input label="{{t('FullName')}}" [(value)]="patient.fullName" inputCount="4" placeholder="" type="text"
+                [enabled]="true">
+
+            </c-multi-input>
+
+        </div>
+
+        <div class="col-6 disabled">
+            <c-input label="{{t('Age')}}" placeholder="" [(value)]="patient.age" type="number">
+
+            </c-input>
+        </div>
+        <div class="col-6 disabled">
+            <!-- <c-input label="{{t('Sex')}}" [(value)]="patient.sex">
+
+            </c-input> -->
+
+            <c-select label="{{t('Sex')}}" [data]="sexes" [(value)]="patient.sexId" fieldName="title" valueFieldName="id"
+            [floatLabel]="true">
+
+        </c-select>
+        </div>
+
+
+        <div class="col-6">
+
+            <!-- <c-input label="{{t('Marriage')}}" [(value)]="patient.martilTitle">
+            </c-input> -->
+            <c-select label="{{t('Marriage')}}"  [data]="marriage" [(value)]="patient.maritalBaseId" fieldName="title"
+                valueFieldName="id" [floatLabel]="true">
+            </c-select>
+        </div>
+
+        <div class="col-6">
+
+            <c-input label="{{t('Dateofbirth')}}" placeholder="" [(value)]="patient.brithDate" type="text">
+            </c-input>
+        </div>
+    </div>
+</c-panel>
+
+<c-panel [iconClass]="'iconsminds-heart'" [title]="'Health Information'">
+
+    <div class="row">
+
+
+        <div class="col-6">
+            <c-input label="{{t('Height')}}" [(value)]="patient.height" placeholder="" type="text">
+
+            </c-input>
+
+        </div>
+
+        <div class="col-6 disabled">
+            <c-input label="{{t('Weight')}}" placeholder="" [(value)]="patient.weight" type="number">
+
+            </c-input>
+        </div>
+        <div class="col-6 form-group disabled">
+            <c-input label="{{t('Allergies')}}" [(value)]="patient.sex">
+
+            </c-input>
+        </div>
+        <div class="col-12 form-group">
+            <h2>{{t('Allergies')}}</h2>
+            <ul *ngFor="let item of patient.listAlergies" class="alergies">
+                <li> <span class="tag me-5"> {{item.grade}}</span> <span>{{item.name}}</span></li>
+
+            </ul>
+
+        </div>
+
+        <div class="col-12 form-group">
+
+          <c-button label="{{t('Save')}}" (click)="savePatient(patient)" [isFlat]="true" color="orange" type="text"
+          enabled="false">
+
+        </c-button>
+
+      </div>
+    </div>
+    <c-toast #toast>User saved successfully</c-toast>
+</c-panel>
+</div>

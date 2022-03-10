@@ -1,0 +1,10 @@
+<div class="c-input ">
+    <div class="label-area" [ngClass]='{"float":floatLabel,"open":focus || hasValue()}'>
+        <label *ngIf="isRequired" style="color: red;">*</label>
+        <label class="control-label" for="{{id}}">{{label}}</label>
+    </div>
+    <div class="d-flex justify-content-start">
+        <input [id]="id" [name]="id" [type]="type" [placeholder]="input_placeholder" [disabled]="!enabled"
+            [(ngModel)]="value" (change)="onValueChanged()" (blur)="onLostFocus()" (focus)="onFocus()" />
+    </div>
+</div>

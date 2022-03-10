@@ -1,0 +1,20 @@
+<div class="col-12 form-group" *transloco="let t">
+    <c-button (click)="openAdd()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+      {{t('AddBaseValue')}}
+    </c-button>
+
+    <b-modal #modal [modalConfig]="modalConfig">
+
+        <app-add-base-value [baseValueType]="selectBaseValueType" style="width: 100%;">
+
+        </app-add-base-value>
+
+    </b-modal>
+</div>
+<div class="col-12 form-group">
+    <c-grid [columns]="dataColumns" [data]="items" (onActionClick)="onActionClick($event)">
+
+    </c-grid>
+    <br />
+    <c-toast #toast>Base value saved successfully</c-toast>
+</div>

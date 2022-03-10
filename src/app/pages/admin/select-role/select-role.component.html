@@ -1,0 +1,49 @@
+<div class="d-flex justify-content-center align-items-center "
+    style="background-image: url('../../../assets/img/background-blue.jpg'); height: 100%;" *transloco="let t">
+    <section class="panel p-2 d-flex justify-content-start col-lg-8">
+        <div class="img-round-container banner">
+            <img src="../../../assets/img/doctor-background.jpg" style="opacity: 0.2;" />
+            <div class="caption">
+                <h1>
+                {{t('SmartHIS')}}
+                </h1>
+                <h4> {{t('his')}}</h4>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center  flex-column p-5" style="height: 480px;flex: 1 1 auto;">
+            <div class="pb-5">
+                <img class="m-2" src="../../../assets/img/logo.png" />
+            </div>
+
+            <div style="flex: 1 1 auto;">
+                <div class="row">
+                    <div class="col-lg-6 p-2" *ngFor="let item of medicalCenters">
+                        <a class="center-select-box" (click)="openCenter(item)">
+                            {{item.title}}
+                        </a>
+                    </div>
+                    <!-- <div class="col-lg-6 p-2">
+                        <div class="center-select-box">
+                            Laboratory
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-2">
+                        <div class="center-select-box">
+                            Main Store
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+            <div class="d-flex align-items-center">
+                <div style="flex: 1 1 auto;">
+                </div>
+                <c-button label="خروج از سیستم" (click)="signout()" persmissionName="Login" [isFlat]="false">
+
+                </c-button>
+
+            </div>
+        </div>
+    </section>
+</div>
+<!--  -->

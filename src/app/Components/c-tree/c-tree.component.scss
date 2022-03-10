@@ -1,0 +1,127 @@
+.c-tree {
+  background: #c4c4c431;
+  border-radius: 20px;
+  padding: 20px;
+  transition: all 0.3s;
+
+  .filter-area {
+
+    .search-dropdown {
+      flex: 1 1 auto;
+      padding: 0;
+      margin-bottom: 5px;
+      position: relative;
+
+      input[type='search'] {
+        height: 40px;
+        color: #212121 !important;
+        width: 100%;
+        border: none;
+        border-radius: 15px !important;
+        padding: 0.4rem 1rem;
+        outline: none;
+        width: 100%;
+      }
+
+      &:before {
+        font-family: 'icon-pack', serif;
+        content: '\e929';
+        align-items: center;
+        color: #184F90 !important;
+        background-color: #FFFFFF !important;
+        display: flex;
+        padding: 0 0.5rem;
+        position: absolute;
+        left: 5px;
+        top: 8px;
+      }
+    }
+  }
+
+
+
+  ul.tree,
+  ul.tree ul {
+    background: #FFF;
+    list-style-type: none;
+    padding: 16px;
+    margin: 0;
+  }
+
+
+  ul.tree {
+    border-radius: 15px;
+  }
+
+
+  ul.tree li {
+
+    margin: 0;
+    border-bottom: 0.9875px solid #F7F7F7;
+    box-sizing: content-box;
+
+    &>.item {
+      padding: 10px 15px 10px 15px;
+      border-radius: 15px;
+      color: #888888;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &.selected {
+        background-color: #d7edfd;
+        color: #1976D2;
+      }
+
+      i {
+        margin-left: 16px;
+      }
+
+      .extra-options {
+        background-color: #F5F5F5;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        text-align: center;
+      }
+    }
+
+    &:hover {
+
+
+      &>.item {
+        background-color: #E3F2FD;
+        color: #1976D2;
+      }
+    }
+  }
+
+
+
+  //   ul.tree,
+  //   ul.tree ul {
+  //     list-style-type: none;
+  //     background: url(/assets/vline.png) repeat-y;
+  //     margin: 0;
+  //     padding-top: 14px;
+  //     padding-left: 20px;
+  //   }
+
+  //   ul.tree ul {
+  //     margin-left: 10px;
+  //   }
+
+  //   ul.tree li {
+  //     margin: 0;
+  //     padding: 0 12px;
+  //     line-height: 20px;
+  //     background: url(/assets/node.png) no-repeat;
+  //     color: #369;
+  //     font-weight: bold;
+  //   }
+
+  //   ul.tree li:last-child {
+  //     background: #fff url(/assets/lastnode.png) no-repeat;
+  //   }
+
+}

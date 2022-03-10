@@ -1,0 +1,20 @@
+
+<div class="col-12 form-group" *transloco="let t">
+  <c-button (click)="addSmsPrice()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+    {{t('AddSMSPrice')}}
+  </c-button>
+
+  <b-modal #modal [modalConfig]="modalConfig">
+
+      <app-add-sms-price style="width: 100%;">
+
+      </app-add-sms-price>
+
+  </b-modal>
+</div>
+<div class="col-12 form-group">
+  <c-grid [columns]="dataColumns" [data]="prices">
+
+  </c-grid>
+
+</div>

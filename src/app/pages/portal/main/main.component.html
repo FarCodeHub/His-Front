@@ -1,0 +1,309 @@
+<div *transloco="let t" [ngClass]="globalService.direction == 'rtl' ? 'rtl' : 'ltr'" class="app-root portal flex-column d-flex">
+  <b-modal #signupModal [modalConfig]="modalConfig">
+    <app-sign-up> </app-sign-up>
+  </b-modal>
+  <b-modal #logimodal [modalConfig]="modalConfigLogin" (modalRefChange)="loginModalRef">
+    <app-login [modalRef]="loginModalRef"> </app-login>
+  </b-modal>
+  <section data-id="main-section" class="row position-relative">
+    <figure class="col-12 col-md-4 col-xl-3 figure align-items-center justify-content-start bg-changeable position-relative d-flex px-0 mb-0">
+      <img src="assets/img/bg.png" width="375" height="655" alt="بوابة الصحة" class="img-fluid figure-img align-self-start mb-0"/>
+      <div data-id="main-logo" class="figure-caption position-absolute flex-column d-none d-md-flex mx-3">
+        <i class="icons icon-logo"> </i>
+        <span class="align-middle"> {{t("HealthPortal")}} </span>
+      </div>
+    </figure>
+    <div class="col-12 col-md-8">
+      <nav data-id="main-menu" class="navbar navbar-expand justify-content-between justify-content-md-end mt-3 mt-md-5 mb-5">
+        <div data-id="main-logo" class="figure-caption align-items-center d-md-none mx-3">
+          <i class="icons icon-logo"> </i>
+          <span class="mx-2"> {{t("HealthPortal")}} </span>
+        </div>
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item d-md-none mx-2"> <i class="icons icon-moon-2 c-pointer mx-0"> </i> </li>
+
+        
+          <li class="nav-item d-none d-md-block mx-2">
+            <div class="dropdown">
+              <i data-mdb-toggle="dropdown" class="icons icon-global dropdown-toggle c-pointer mx-0"> </i>
+              <ul data-id="global-list" class="dropdown-menu dropdown-menu-end">
+                <li (click)="setActiveLang('en')" class="p-0">
+                  <a href="#" class="dropdown-item d-flex transition">
+                    <i class="css-sprite icon-uk"> </i> <span class="mx-1"> English </span>
+                  </a>
+                </li>
+                <li (click)="setActiveLang('iq')" class="p-0">
+                  <a href="#" class="dropdown-item ar d-flex transition">
+                    <i class="css-sprite icon-iraq"> </i> <span class="mx-1"> العربیة </span>
+                  </a>
+                </li>
+                <li (click)="setActiveLang('en')" class="p-0">
+                  <a href="#" class="dropdown-item d-flex transition">
+                    <i class="css-sprite icon-germany"> </i> <span class="mx-1"> Deutsche </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item mx-2">
+            <div class="dropdown">
+              <i data-mdb-toggle="dropdown" class="dropdown-toggle icons icon-login c-pointer mx-0"> </i>
+              <ul data-id="user-list" class="dropdown-menu dropdown-menu-end">
+                <li class="p-0">
+                  <a (click)="login()" class="dropdown-item d-flex transition">
+                    <i class="icons icon-login"> </i> <span class="mx-1"> {{t("LoginPatient")}} </span>
+                  </a>
+                </li>
+                <li class="p-0">
+                  <a (click)="loginAdmin()" class="dropdown-item d-flex transition">
+                    <i class="css-sprite icon-iraq"> </i> <span class="mx-1"> {{t("Loginadmin")}} </span>
+                  </a>
+                </li>
+                <li class="p-0">
+                  <a (click)="signup()" class="dropdown-item d-flex transition">
+                    <i class="css-sprite icon-germany"> </i> <span class="mx-1"> {{t("Signup")}} </span>
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+          </li>
+          <li class="nav-item d-md-none mx-2"> <i class="icons icon-menu-2 c-pointer mx-0"> </i> </li>
+        </ul>
+
+      </nav>
+      <div class="description pt-md-2 pt-lg-5">
+        <h1 class="mb-3"> {{t("Wesupportyour")}} <strong> {{t("Health")}} </strong> </h1>
+        <span> {{t("p1")}} </span>
+      </div>
+    </div>
+    <div data-id="main-search">
+      <ul class="nav nav-tabs nav-fill mb-4">
+        <li class="nav-item">
+          <a href="#hospital-tab" data-mdb-toggle="tab" (click)="initAddress('/centers')" class="nav-link p-0">
+            <i class="icons icon-hospital transition mb-1"> </i>
+            <span class="align-middle transition mx-1"> {{t("Hospitals")}} </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#pharmacy-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/pharmacies')">
+            <i class="icons icon-pill transition mb-1"> </i>
+            <span class="align-middle transition mx-1"> {{t("Pharmacies")}} </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#laboratory-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/labs')">
+            <i class="icons icon-microscope transition mb-1"> </i>
+            <span class="align-middle transition mx-1"> {{t("Laboratories")}} </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#radiology-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/radiologies')">
+            <i class="icons icon-radiology transition mb-1"> </i>
+            <span class="align-middle transition mx-1"> {{t("Radiologys")}} </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#doctor-tab" (click)="initAddress('/doctors')" data-mdb-toggle="tab" class="nav-link active p-0">
+            <i class="icons icon-stethoscope transition mb-1"> </i>
+            <span class="align-middle transition mx-1"> {{t("Doctors")}} </span> </a>
+        </li>
+      </ul>
+      <ng-template #seachControl>
+        <div class="list-inline flex-column flex-md-row d-flex gap-2 px-0 mb-0">
+          <div class="d-flex pb-1">
+            <div class="list-inline-item flex-fill order-1 order-md-2 mx-0">
+              <c-select label="Governorate" [floatLabel]="true" appearance="no-border"></c-select>
+            </div>
+            <div class="list-inline-item flex-fill order-2 order-md-3 mx-0">
+              <c-select label="Region" [floatLabel]="true" [appearance]="'no-border'"></c-select>
+            </div>
+            <div class="list-inline-item order-3 order-md-1 mx-0">
+              <button type="button" name="" onclick="" data-action="gps" class="btn btn-sm px-2 py-1">
+                <i class="icons icon-gps"> </i>
+              </button>
+            </div>
+          </div>
+          <div class="flex-fill d-flex">
+            <div class="list-inline-item flex-fill mx-0">
+              <div class="form-outline">
+                <input type="search" name="" value="" placeholder="Type a name" id="search-label"
+                       class="form-control"/>
+                <label for="search-label" class="form-label"> </label>
+              </div>
+            </div>
+            <div class="list-inline-item mx-0">
+              <button type="button" name="" (click)="search()" data-action="submit" class="btn btn-sm px-2 py-1">
+                <i class="icons icon-search"> </i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <div class="tab-content p-3 mx-3">
+        <div id="hospital-tab" class="tab-pane fade show active">
+          <ng-container *ngTemplateOutlet="seachControl"> </ng-container>
+        </div>
+        <div id="pharmacy-tab" class="tab-pane fade">
+          <ng-container *ngTemplateOutlet="seachControl"> </ng-container>
+        </div>
+        <div id="laboratory-tab" class="tab-pane fade">
+          <ng-container *ngTemplateOutlet="seachControl"> </ng-container>
+        </div>
+        <div id="radiology-tab" class="tab-pane fade">
+          <ng-container *ngTemplateOutlet="seachControl"> </ng-container>
+        </div>
+        <div id="doctor-tab" class="tab-pane fade">
+          <ng-container *ngTemplateOutlet="seachControl"> </ng-container>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section data-id="section2" class="row align-items-center flex-column d-flex">
+    <div class="description pt-4 mx-md-4 my-3">
+      <h1 class="mb-3"> {{t("Whypeoplelove")}} <strong> {{t("HealthPortal")}} </strong></h1>
+    </div>
+    <div class="row justify-content-center d-flex">
+      <div class="col-12 col-sm-6 col-md-3 item flex-column d-flex">
+        <div class="img-wrapper"> <img src="assets/img/portal/lab-icon.png" width="" height="" alt="" class="img-fluid" /> </div>
+        <span> {{t("p2")}} </span>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 item flex-column d-flex">
+        <div class="img-wrapper"> <img src="assets/img/portal/Home-icon.png" width="" height="" alt="" class="img-fluid" /> </div>
+        <span> {{t("p12")}} </span>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 item flex-column d-flex">
+        <div class="img-wrapper"> <img src="assets/img/portal/online doctor-icon.png" width="" height="" alt="" class="img-fluid" /> </div>
+        <span> {{t("p13")}} </span>
+      </div>
+      <div class="col-12 col-sm-6 col-md-3 item flex-column d-flex">
+        <div class="img-wrapper"> <img src="assets/img/portal/fly-around-the world.png" width="" height="" alt="" class="img-fluid" /> </div>
+        <span> {{t("p14")}} </span>
+      </div>
+    </div>
+  </section>
+  <section data-id="section3">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-5 offset-lg-1 justify-content-end d-flex">
+        <div appParallax class="description mt-5">
+          <h1 class="mb-3"> {{t("p2")}} </h1>
+          <br />
+          <c-button label="{{t('Createyourprofilenow')}}" [isFlat]="true" color="green"> </c-button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 align-self-center text-center"> <img appParallax src="assets/img/portal/scientist.png" width="" alt="" class="img-fluid" /> </div>
+    </div>
+  </section>
+  <section data-id="section4" class="row justify-content-center d-flex">
+    <div id="image-container"> </div>
+    <div class="description caption">
+      <h1 class="mb-3"> {{t("Getthebestcarefromany")}} <strong> {{t("where")}} </strong> </h1>
+      <br />
+      <p style="font-size: var(--fontsize-14px); font-family: var(--font-regular), serif"> {{t("p3")}} </p>
+      <c-button label="Book Now" [isFlat]="true" color="orange" class="mt-2"> </c-button>
+    </div>
+  </section>
+  <section data-id="section5" class="justify-content-center d-flex">
+    <div class="row">
+      <div class="col-12 col-md-6 align-self-center"> <img appParallax src="assets/img/portal/phone1.png" width="" alt="" class="img-fluid phone" /> </div>
+      <div appParallax [transform-end]="0" [transform-start]="80" class="col-12 col-md-6 description mt-5 mt-md-0" style="margin-left: -150px !important">
+        <h1> {{t("Downloadthe")}} <strong> {{t("App")}} </strong></h1>
+        <ul>
+          <li> {{t("Youwillhavemorecomfortableuserexprience")}} </li>
+          <li> {{t("Youwillhavemorecomfortableuserexprience")}} </li>
+          <li> {{t("p6")}} </li>
+        </ul>
+        <div class="gap-3 justify-content-center justify-content-md-start d-flex">
+          <a href=""> <img src="assets/img/portal/app store icon.png" width="" height="" alt="" class="button img-fluid" /> </a>
+          <a href=""> <img src="assets/img/portal/Google play icon.png" width="" height="" alt="" class="button img-fluid" /> </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section data-id="section6" class="justify-content-center d-flex">
+    <div class="col-12 col-md-7">
+      <div class="col-12 description">
+        <h1 class="mb-3"> {{t("Someofthething")}} <strong> {{t("wetreat")}} </strong> </h1>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/cold_flu.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Coldandflusymptoms")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/back_and_neck.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Backandneckpain")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/rashes.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Rahsesandblemishesontheskin")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/dental_pain.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Dentalinfections")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/stress.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Stress")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/anxiety-depression.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Mentalhealthconditions")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/allergies.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Allergies")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/abdominal-pain.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Abdominalpain")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/chest.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("ChestPain")}} </span>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 item p-2">
+          <div>
+            <img src="assets/img/portal/nausea.png" width="" height="" alt="" class="img-fluid" />
+            <span class="mt-2 ml-md-2"> {{t("Nauseaandvomiting")}} </span>
+          </div>
+        </div>
+      </div>
+      <div class="row description text-center mw-100 m-2">
+        <p> {{t("andHundredsmoreadultandpediatricconditions")}} </p>
+      </div>
+    </div>
+  </section>
+  <section data-id="section7">
+    <div class="row">
+      <div class="col-12 col-md-6 justify-content-center justify-content-md-end d-flex">
+        <div appParallax class="caption mt-0 mt-lg-5">
+          <h1 class="mb-3"> {{t("Areyouadoctor")}} </h1>
+          <p> {{t("p15")}} </p>
+          <c-button label="{{t('Createyourprofilenow')}}" [isFlat]="true" color="orange" class="mt-2 mb-3 mb-md-0"> </c-button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <img appParallax [transform-end]="-80" [transform-start]="0" src="assets/img/portal/characters.png" width="" alt="" class="img-fluid" />
+      </div>
+    </div>
+  </section>
+</div>

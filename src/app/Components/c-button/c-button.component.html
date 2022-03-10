@@ -1,0 +1,4 @@
+<button class="c-button outline {{class}}" (click)="onButtonClicked()" [ngClass]="{'flat': isFlat, 'outline': !isFlat, 'orange': color == 'orange', 'blue': color == 'blue', 'green': color == 'green', 'transparent': color == 'transparent'}">
+  <i *ngIf="icon" class="icons icon-{{icon}}"> </i> <span *ngIf="label"> {{label}} </span>
+  <ng-content> </ng-content>
+</button>

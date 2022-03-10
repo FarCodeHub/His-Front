@@ -1,0 +1,63 @@
+<div *transloco="let t" class="portal flex-column d-flex" style="min-height: 100vh; text-align: left; direction: ltr">
+  <section data-id="main-section" class="row">
+    <figure class="col col-md-4 col-lg-3 main-figure align-items-start justify-content-md-end position-relative d-flex px-0 mb-0">
+      <img src="assets/img/bg.png" width="375" height="655" alt="بوابة الصحة" class="figure-img position-absolute mb-0" />
+      <div data-id="main-logo" class="figure-caption align-items-center position-absolute d-flex mx-2">
+        <i class="icons icon-logo"> </i>
+        <span class="align-middle mx-2"> {{t('HealthPortal')}} </span>
+      </div>
+    </figure>
+    <div class="col col-md-7 col-lg-8 col-xl-7 offset-md-1 align-self-center">
+      <nav data-id="main-menu" class="navbar navbar-expand justify-content-end gap-3 d-flex mt-md-2 mt-lg-3">
+        <div data-id="main-search" class="flex-fill">
+          <ul class="nav nav-tabs nav-fill align-items-center">
+            <li class="nav-item">
+              <a href="#hospital-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/centers')">
+                  <i class="fas fa-hospital icons"></i>
+                  <span class="align-middle transition">
+                    {{t('Hospitals')}}
+                  </span>
+              </a>
+          </li>
+          <li class="nav-item"> <a href="#pharmacy-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/pharmacies')">
+                  <i class="fas fa-pills icons"></i>
+                  <span class="align-middle transition">
+                    {{t('Pharmacies')}} </span> </a> </li>
+          <li class="nav-item"> <a href="#laboratory-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/labs')">
+                  <i class="fas fa-microscope icons"></i>
+                  <span class="align-middle transition"> {{t('Laboratories')}} </span> </a> </li>
+          <li class="nav-item"> <a href="#radiology-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/radiologies')">
+                  <i class="fas fa-microscope icons"></i>
+                  <span class="align-middle transition"> {{t('Radiologys')}} </span> </a> </li>
+          <li class="nav-item"> <a href="#doctor-tab" data-mdb-toggle="tab" class="nav-link p-0" (click)="initAddress('/doctors')">
+
+                  <i class="fas fa-stethoscope icons"></i>
+                  <span class="align-middle transition"> {{t('Doctors')}} </span> </a> </li>
+          </ul>
+        </div>
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item d-md-none mx-2"> <i class="icons icon-moon-2 c-pointer mx-0"> </i> </li>
+
+       
+          <li class="nav-item d-none d-md-block mx-2">
+            <div class="dropdown">
+              <i data-mdb-toggle="dropdown" class="icons icon-global dropdown-toggle c-pointer mx-0"> </i>
+              <ul data-id="global-list" class="dropdown-menu dropdown-menu-end">
+                <li (click)="setActiveLang('en')"> <a href="#" class="dropdown-item d-flex transition"> <i class="css-sprite icon-uk"> </i> <span class="mx-1"> English </span> </a> </li>
+                <li (click)="setActiveLang('iq')"> <a href="#" class="dropdown-item ar d-flex transition"> <i class="css-sprite icon-iraq"> </i> <span class="mx-1"> العربیة </span> </a> </li>
+                <li (click)="setActiveLang('en')"> <a href="#" class="dropdown-item d-flex transition"> <i class="css-sprite icon-germany"> </i> <span class="mx-1"> Deutsche </span> </a> </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item mx-2">
+            <i (click)="login()" class="icons icon-login c-pointer mx-0"> </i>
+          </li>
+          <li class="nav-item d-md-none mx-2"> <i class="icons icon-menu-2 c-pointer mx-0"> </i> </li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+  <section class="row" style="padding: 16px">
+    <ng-content> </ng-content>
+  </section>
+</div>

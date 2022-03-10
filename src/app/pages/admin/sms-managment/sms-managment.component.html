@@ -1,0 +1,44 @@
+<div *transloco="let t">
+<div class="row">
+  <h1 class="main-title">
+    {{t('PatientProfile')}}
+  </h1>
+  <hr />
+</div>
+
+<div class="row">
+
+  <aside class="sidebar col-lg-3 col-md-3 col-sm-12 px-0 my-3">
+      <div>
+          <ul>
+              <li class="panel-group has-child mb-0" [ngClass]="{'selected': page==0}">
+
+                  <a (click)="setPage(0)">
+                    {{t('BuyMessage')}}
+                  </a>
+              </li>
+              <li class="panel-group mb-0" [ngClass]="{'selected' :page==1}">
+                  <a (click)="setPage(1)" href="#" data-toggle="collapse" aria-expanded="false" class="collapsed">
+                    {{t('Operator')}}
+                    </a>
+              </li>
+              <li class="panel-group mb-0" [ngClass]="{'selected':page==2}">
+                  <a (click)="setPage(2)" href="#" data-toggle="collapse" aria-expanded="false" class="collapsed">
+                    {{t('SMSPrice')}}
+                    </a>
+              </li>
+
+          </ul>
+          <div class="back"> </div>
+      </div>
+  </aside>
+  <section class="col-lg-9 col-md-7 my-3">
+      <app-buy-message   *ngIf="page==0"></app-buy-message>
+      <app-operator   *ngIf="page==1"></app-operator>
+      <app-sms-price   *ngIf="page==2"></app-sms-price>
+
+  </section>
+
+
+</div>
+</div>

@@ -1,0 +1,162 @@
+<div *transloco="let t" class="row m-3">
+  <div class="panel filter-area no-shadow">
+    <ul class="list-inline d-flex mb-0">
+      <li class="list-inline-item">
+        <c-select label="" [floatLabel]="true" [data]="dataColumns" appearance="no-border" fieldName="title"
+          valueFieldName="field" parent="filter-area"> </c-select>
+      </li>
+      <li class="list-inline-item flex-fill">
+        <div class="form-outline w-100">
+          <input type="search" name="" value="" placeholder="Type a name" id="search-label" class="form-control" />
+          <label for="search-label" class="form-label"> </label>
+        </div>
+      </li>
+      <li class="list-inline-item">
+        <button type="button" name="" onclick="" data-action="submit" class="btn btn-sm px-2 py-1"> <i
+            class="icons icon-search"> </i> </button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-12 uploader">
+    <label class="dragdrop"> <i class="icons icon-arrow-sq"> </i> {{t('DragFilesHere')}} </label>
+    <c-button label="Select Files & Upload" [isFlat]="false" (click)="onClick()" color="orange" icon="upload">
+    </c-button>
+    <input #fileUpload type="file" name="fileUpload" multiple="multiple" accept="image/*" id="fileUpload"
+      style="display: none" />
+  </div>
+  <div class="row px-0 mt-3">
+    <div *ngFor="let file of allFiles" class="col-3 my-3">
+      <div class="file-item">
+        <figure class="figure mb-0"> <img src="{{baseUrl}}/Images/UploadedFile/{{file.fileFolderName}}" width=""
+            height="" alt="" class="img-fluid figure-img mb-0" /> </figure>
+        <div class="card-body">
+          <label class="title"> {{file.fileFolderName}} </label>
+          <footer class="footer">
+            <label class="date"> {{file.createTime | date: 'yyyy.MM.dd'}} </label>
+            <div class="dropdown">
+              <c-button [isFlat]="false" color="transparent" icon="dot" data-toggle="dropdown" aria-expanded="false"
+                class="dropdown-toggle no-text"> </c-button>
+              <ul class="dropdown-menu m-0">
+                <li class="dropdown-item active"> <i class="icons icon-eye"> </i> <span> View File </span> </li>
+                <li class="dropdown-item"> <i class="icons icon-comment"> </i> <span> Comments </span> </li>
+                <li class="dropdown-item"> <i class="icons icon-edit"> </i> <span> Rename </span> </li>
+                <li class="dropdown-item buttons">
+                  <button type="button" name="" class="btn btn-sm btn-close"> <i class="icons icon-close"> </i>
+                  </button>
+                  <button type="button" name="" class="btn btn-sm btn-share"> <i class="icons icon-share"> </i> <span>
+                      Share </span> </button>
+                </li>
+              </ul>
+            </div>
+          </footer>
+        </div>
+      </div>
+      <div class="col-3 my-3" *ngIf="file.extension=='.pdf'">
+        <div class="file-item">
+          <figure class="figure mb-0">
+            <svg width="46" height="55" viewBox="0 0 46 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M36.1163 0.0263672H9.80801C8.68393 0.0263672 7.77271 0.999245 7.77271 2.19951V52.1809C7.77271 53.381 8.68393 54.354 9.80812 54.354H43.0526C44.1767 54.354 45.088 53.3811 45.088 52.1809V9.60514L36.1163 0.0263672Z"
+                fill="#EFEFEF" />
+              <path
+                d="M19.8317 16.6572H2.19178C1.44236 16.6572 0.834839 16.0086 0.834839 15.2084V7.14407C0.834839 6.34394 1.44236 5.69531 2.19178 5.69531H19.8317C20.5812 5.69531 21.1887 6.34394 21.1887 7.14407V15.2084C21.1887 16.0086 20.5812 16.6572 19.8317 16.6572Z"
+                fill="#1565C0" />
+              <path
+                d="M6.98997 8.6692C7.38615 9.02257 7.58434 9.56724 7.58434 10.3032C7.58434 11.0392 7.38224 11.578 6.97748 11.92C6.57326 12.262 5.95314 12.4329 5.11766 12.4329H4.10788V14.2148H3.14722V8.13867H5.10114C5.96433 8.13867 6.5938 8.31547 6.98997 8.6692ZM6.3102 11.1769C6.50296 10.9594 6.59913 10.6407 6.59913 10.2205C6.59913 9.80066 6.47721 9.50355 6.23272 9.32954C5.98824 9.15587 5.60598 9.06886 5.08452 9.06886H4.10788V11.5027H5.22295C5.75495 11.5027 6.11744 11.3941 6.3102 11.1769Z"
+                fill="#EBF0F3" />
+              <path
+                d="M13.0226 8.93514C13.5712 9.46532 13.8448 10.2028 13.8448 11.1475C13.8448 12.0918 13.5791 12.8395 13.0471 13.3899C12.5151 13.9406 11.7008 14.2158 10.6049 14.2158H8.71594V8.13965H10.6699C11.6901 8.13965 12.4746 8.40497 13.0226 8.93514ZM12.8761 11.1732C12.8761 9.7825 12.13 9.08712 10.6373 9.08712H9.6766V13.2508H10.7433C11.4323 13.2508 11.9604 13.0757 12.3268 12.7248C12.6932 12.3744 12.8761 11.8574 12.8761 11.1732Z"
+                fill="#EBF0F3" />
+              <path
+                d="M16.0431 9.09605V10.7648H18.5668V11.7124H16.0431V14.2158H15.0824V8.13965H18.8763L18.8683 9.09605H16.0431Z"
+                fill="#EBF0F3" />
+              <path d="M36.1166 9.60513H45.0882L36.1165 0.0263672L36.1166 9.60513Z" fill="#BEBEBE" />
+              <path
+                d="M40.2998 37.5206C39.4659 36.504 38.2473 35.7989 36.8697 35.5351C34.6915 35.1184 32.6234 34.9649 30.6796 35.0032C28.9105 33.0957 27.2 30.844 26.0327 28.3708C27.0537 24.7751 27.5939 21.6657 27.8978 19.9139C28.0543 19.0135 27.8204 18.0554 27.2718 17.351C26.7534 16.6859 26.0035 16.3047 25.2144 16.3047C25.2138 16.3047 25.2132 16.3047 25.2126 16.3047C24.4452 16.305 23.7933 16.6398 23.3275 17.2727C21.768 19.3928 22.8338 24.5251 23.0641 25.535C23.2997 26.5581 23.6344 27.554 24.0459 28.5195C23.2363 31.2444 22.1445 34.2036 20.6666 37.0033C15.7339 38.924 12.7951 41.5634 12.5539 41.7853C11.7352 42.6356 11.3304 43.4893 11.3516 44.3235C11.3637 44.796 11.5227 45.4946 12.2126 46.1378C12.7413 46.63 13.4175 46.8761 14.1044 46.8761C14.801 46.8761 15.5092 46.6229 16.0844 46.1175C18.4656 44.0254 20.3736 41.4293 21.9047 38.6722C24.1964 37.8387 26.9099 37.1804 29.9635 37.0243C32.1598 39.2947 34.3488 41.0278 35.7216 42.0337C37.1796 43.102 39.1281 42.9633 40.3565 41.706C41.5053 40.5284 41.4841 38.9637 40.2998 37.5206ZM14.9051 44.5873C14.4634 44.9756 13.8157 45.0014 13.4333 44.6447C13.2865 44.5073 13.2104 44.3815 13.2073 44.2702C13.2049 44.1789 13.2441 43.8328 13.8055 43.2474C13.8466 43.2103 15.6894 41.5554 18.9086 39.9569C17.7618 41.6627 16.4368 43.2415 14.9051 44.5873ZM24.7875 18.4967C24.883 18.367 24.9876 18.2864 25.2141 18.2864C25.5379 18.2864 25.7483 18.4944 25.8449 18.6183C26.0449 18.8751 26.1301 19.2244 26.0733 19.5524V19.5528C25.851 20.8314 25.4987 22.8615 24.9168 25.2735C24.8999 25.2037 24.883 25.1341 24.8666 25.0642C24.3845 22.9474 24.0412 19.511 24.7875 18.4967ZM23.1875 36.1486C24.0014 34.3987 24.6811 32.6277 25.2503 30.9147C26.1319 32.4374 27.1735 33.8588 28.2683 35.1529C26.4376 35.3438 24.7392 35.6985 23.1875 36.1486ZM39.0709 40.2764C38.4757 40.8876 37.5083 40.9386 36.7718 40.3996C35.7604 39.6584 34.28 38.5017 32.6959 37.0222C33.9333 37.0838 35.2172 37.2322 36.5422 37.4857C37.5071 37.6702 38.3458 38.1463 38.9041 38.8262C39.6261 39.7071 39.3053 40.0361 39.0709 40.2764Z"
+                fill="#FF5252" />
+            </svg>
+          </figure>
+          <div class="card-body">
+            <label class="title"> {{file.fileFolderName}} </label>
+            <footer class="footer">
+              <label class="date"> {{file.createTime | date: 'yyyy.MM.dd'}} </label>
+              <div class="dropdown">
+                <c-button [isFlat]="false" color="transparent" icon="dot" data-toggle="dropdown" aria-expanded="false"
+                  class="dropdown-toggle no-text"> </c-button>
+                <ul class="dropdown-menu m-0">
+                  <li class="dropdown-item active"> <i class="icons icon-eye"> </i> <span> View File </span> </li>
+                  <li class="dropdown-item"> <i class="icons icon-comment"> </i> <span> Comments </span> </li>
+                  <li class="dropdown-item"> <i class="icons icon-edit"> </i> <span> Rename </span> </li>
+                  <li class="dropdown-item buttons">
+                    <button type="button" name="" class="btn btn-sm btn-close"> <i class="icons icon-close"> </i>
+                    </button>
+                    <button type="button" name="" class="btn btn-sm btn-share"> <i class="icons icon-share"> </i> <span>
+                        Share </span> </button>
+                  </li>
+                </ul>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 my-3" *ngIf="file.extension=='.docx'">
+        <div class="file-item">
+          <figure class="figure mb-0">
+            <svg width="42" height="55" viewBox="0 0 42 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M32.1164 0.0263672H5.80813C4.68405 0.0263672 3.77283 0.999245 3.77283 2.19951V52.1809C3.77283 53.381 4.68405 54.354 5.80824 54.354H39.0527C40.1768 54.354 41.0881 53.3811 41.0881 52.1809V9.60514L32.1164 0.0263672Z"
+                fill="#E1E6E9" />
+              <path d="M41.088 29.9668H0.719604V44.8512H41.088V29.9668Z" fill="#1565C0" />
+              <path
+                d="M15.3161 34.1014C16.1384 34.8961 16.5485 36.0014 16.5485 37.4174C16.5485 38.8329 16.1503 39.9536 15.3529 40.7784C14.5554 41.6038 13.3349 42.0163 11.6924 42.0163H8.86121V32.9092H11.7898C13.3191 32.9092 14.4949 33.3068 15.3161 34.1014ZM15.0966 37.456C15.0966 35.3715 13.9784 34.3293 11.7411 34.3293H10.3012V40.5699H11.9C12.9328 40.5699 13.7243 40.3075 14.2734 39.7816C14.8225 39.2564 15.0966 38.4814 15.0966 37.456Z"
+                fill="#EBF0F3" />
+              <path
+                d="M25.5416 40.761C24.6796 41.6601 23.6141 42.1097 22.3449 42.1097C21.0758 42.1097 20.0103 41.6601 19.1483 40.761C18.2853 39.8625 17.8544 38.7417 17.8544 37.4001C17.8544 36.0578 18.2853 34.9376 19.1483 34.0385C20.0103 33.1394 21.0758 32.6904 22.3449 32.6904C23.6141 32.6904 24.6796 33.1394 25.5416 34.0385C26.4046 34.9376 26.8355 36.0578 26.8355 37.4001C26.8355 38.7417 26.4046 39.8624 25.5416 40.761ZM24.487 35.0611C23.905 34.4187 23.191 34.0974 22.3449 34.0974C21.4988 34.0974 20.7848 34.4187 20.2029 35.0611C19.622 35.7042 19.3311 36.4834 19.3311 37.4001C19.3311 38.3167 19.622 39.0959 20.2029 39.7384C20.7849 40.3814 21.4989 40.7027 22.3449 40.7027C23.1911 40.7027 23.9051 40.3814 24.487 39.7384C25.0679 39.0959 25.3588 38.3165 25.3588 37.4001C25.3588 36.4836 25.068 35.7041 24.487 35.0611Z"
+                fill="#EBF0F3" />
+              <path
+                d="M32.5467 40.6243C33.0422 40.6243 33.4693 40.5357 33.8278 40.3577C34.1853 40.1796 34.5598 39.8949 34.951 39.5042L35.8775 40.5204C34.9748 41.5887 33.8785 42.123 32.5895 42.123C31.2994 42.123 30.2299 41.6799 29.3799 40.794C28.5298 39.9081 28.1047 38.7874 28.1047 37.4324C28.1047 36.0774 28.5377 34.9487 29.4046 34.0449C30.2705 33.1421 31.365 32.6904 32.6867 32.6904C34.0084 32.6904 35.1128 33.2116 35.9995 34.2538L35.0849 35.322C34.6778 34.9053 34.2935 34.6144 33.931 34.4489C33.5695 34.2841 33.1445 34.2014 32.6558 34.2014C31.7938 34.2014 31.07 34.4993 30.4841 35.0941C29.8982 35.6889 29.6052 36.4491 29.6052 37.3742C29.6052 38.2993 29.8962 39.0721 30.4781 39.6929C31.0602 40.3142 31.7493 40.6243 32.5467 40.6243Z"
+                fill="#EBF0F3" />
+              <path d="M0.719604 44.8496L3.77272 47.8807V44.8496H0.719604Z" fill="#0039CB" />
+              <path d="M32.1163 9.60513H41.0879L32.1162 0.0263672L32.1163 9.60513Z" fill="#EBF0F3" />
+              <path d="M33.8425 9.60547L41.0881 14.0937V9.60547H33.8425Z" fill="#D5D6DB" />
+              <path
+                d="M9.63403 21.3898C9.63403 20.9389 9.99953 20.5734 10.4504 20.5734H34.9409C35.3918 20.5734 35.7573 20.9389 35.7573 21.3898C35.7573 21.8406 35.3918 22.2061 34.9409 22.2061H10.4504C9.99953 22.2061 9.63403 21.8406 9.63403 21.3898Z"
+                fill="#1565C0" />
+              <path
+                d="M9.63403 17.308C9.63403 16.8571 9.99953 16.4916 10.4504 16.4916H34.9409C35.3918 16.4916 35.7573 16.8571 35.7573 17.308C35.7573 17.7589 35.3918 18.1243 34.9409 18.1243H10.4504C9.99953 18.1243 9.63403 17.7589 9.63403 17.308Z"
+                fill="#1565C0" />
+              <path
+                d="M9.63403 13.2262C9.63403 12.7754 9.99953 12.4099 10.4504 12.4099H34.9409C35.3918 12.4099 35.7573 12.7754 35.7573 13.2262C35.7573 13.6771 35.3918 14.0426 34.9409 14.0426H10.4504C9.99953 14.0426 9.63403 13.6771 9.63403 13.2262Z"
+                fill="#1565C0" />
+              <path
+                d="M9.63403 9.14448C9.63403 8.69362 9.99953 8.32812 10.4504 8.32812H21.063C21.5138 8.32812 21.8793 8.69362 21.8793 9.14448C21.8793 9.59534 21.5138 9.96083 21.063 9.96083H10.4504C9.99953 9.96083 9.63403 9.59534 9.63403 9.14448Z"
+                fill="#1565C0" />
+            </svg>
+          </figure>
+          <div class="card-body">
+            <label class="title"> {{file.fileFolderName}} </label>
+            <footer class="footer">
+              <label class="date"> {{file.createTime | date: 'yyyy.MM.dd'}} </label>
+              <div class="dropdown">
+                <c-button [isFlat]="false" color="transparent" icon="dot" data-toggle="dropdown" aria-expanded="false"
+                  class="dropdown-toggle no-text"> </c-button>
+                <ul class="dropdown-menu m-0">
+                  <li class="dropdown-item active"> <i class="icons icon-eye"> </i> <span> View File </span> </li>
+                  <li class="dropdown-item"> <i class="icons icon-comment"> </i> <span> Comments </span> </li>
+                  <li class="dropdown-item"> <i class="icons icon-edit"> </i> <span> Rename </span> </li>
+                  <li class="dropdown-item buttons">
+                    <button type="button" name="" class="btn btn-sm btn-close"> <i class="icons icon-close"> </i>
+                    </button>
+                    <button type="button" name="" class="btn btn-sm btn-share"> <i class="icons icon-share"> </i> <span>
+                        Share </span> </button>
+                  </li>
+                </ul>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

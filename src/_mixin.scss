@@ -1,0 +1,108 @@
+@mixin font ($pack_name, $root, $font_name) {
+  @font-face {
+    font-family: $pack_name;
+    src: url('assets/font/#{ $root }/#{ $font_name }.eot');
+    src: url('assets/font/#{ $root }/#{ $font_name }.eot?#iefix') format('embedded-opentype'),
+    url('assets/font/#{ $root }/#{ $font_name }.ttf') format('truetype'),
+    url('assets/font/#{ $root }/#{ $font_name }.woff') format('woff'),
+    url('assets/font/#{ $root }/#{ $font_name }.woff2') format('woff2')
+  }
+}
+
+@mixin filter ($type, $value) {
+  @if ($type=='blur') {
+    filter: blur($value) !important;
+    -webkit-filter: blur($value) !important
+  }
+
+  @else if ($type=='brightness') {
+    filter: brightness($value) !important;
+    -webkit-filter: brightness($value) !important
+  }
+
+  @else if ($type=='contrast') {
+    filter: contrast($value) !important;
+    -webkit-filter: contrast($value) !important
+  }
+
+  @else if ($type=='grayscale') {
+    filter: grayscale($value) !important;
+    -webkit-filter: grayscale($value) !important
+  }
+
+  @else if ($type=='hue-rotate') {
+    filter: hue-rotate($value) !important;
+    -webkit-filter: hue-rotate($value) !important
+  }
+
+  @else if ($type=='invert') {
+    filter: invert($value) !important;
+    -webkit-filter: invert($value) !important
+  }
+
+  @else if ($type=='opacity') {
+    filter: opacity($value) !important;
+    -webkit-filter: opacity($value) !important
+  }
+
+  @else if ($type=='saturate') {
+    filter: saturate($value) !important;
+    -webkit-filter: saturate($value) !important
+  }
+
+  @else if ($type=='sepia') {
+    filter: sepia($value) !important;
+    -webkit-filter: sepia($value) !important
+  }
+
+  @else if ($type=='drop-shadow') {
+    filter: drop-shadow($value) !important;
+    -webkit-filter: drop-shadow($value) !important
+  }
+}
+
+@mixin linear_gradient ($direction, $color_1, $color_2) {
+  background: linear-gradient($direction, $color_1, $color_2) !important;
+  background: -moz-linear-gradient($direction, $color_1, $color_2) !important;
+  background: -webkit-linear-gradient($direction, $color_1, $color_2) !important;
+  background: -ms-linear-gradient($direction, $color_1, $color_2) !important;
+  background: -o-linear-gradient($direction, $color_1, $color_2) !important
+}
+
+@mixin transform_rotate ($deg) {
+  transform: rotate($deg) !important;
+  -moz-transform: rotate($deg) !important;
+  -webkit-transform: rotate($deg) !important;
+  -ms-transform: rotate($deg) !important;
+  -o-transform: rotate($deg) !important
+}
+
+@mixin transform_scale ($sx) {
+  transform: scale($sx) !important;
+  -moz-transform: scale($sx) !important;
+  -webkit-transform: scale($sx) !important;
+  -ms-transform: scale($sx) !important;
+  -o-transform: scale($sx) !important
+}
+
+@mixin translate ($t1, $t2) {
+  transform: translate($t1, $t2) !important;
+  -moz-transform: translate($t1, $t2) !important;
+  -webkit-transform: translate($t1, $t2) !important;
+  -ms-transform: translate($t1, $t2) !important;
+  -o-transform: translate($t1, $t2) !important
+}
+
+@mixin transition ($property, $duration, $timing-function, $delay: 0s) {
+  transition: $property $duration $timing-function $delay !important;
+  -moz-transition: $property $duration $timing-function $delay !important;
+  -webkit-transition: $property $duration $timing-function $delay !important;
+  -o-transition: $property $duration $timing-function $delay !important
+}
+
+@mixin box_shadow ($h, $v, $blur, $spreed, $color, $type) {
+  box-shadow: $h $v $blur $spreed $color $type !important;
+  -moz-box-shadow: $h $v $blur $spreed $color $type !important;
+  -webkit-box-shadow: $h $v $blur $spreed $color $type !important;
+  -o-box-shadow: $h $v $blur $spreed $color $type !important
+}

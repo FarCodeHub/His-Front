@@ -1,0 +1,26 @@
+<div class="row">
+
+
+
+
+</div>
+
+<div class="col-12 form-group" *transloco="let t">
+    <c-button (click)="openModal()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+      {{t('AddSpeciality')}}
+    </c-button>
+
+    <b-modal #modal [modalConfig]="modalConfig">
+
+        <app-add-speciality style="width: 100%;" [parentSpeciality]="selectedSpeciality">
+
+        </app-add-speciality>
+    </b-modal>
+</div>
+<div class="col-12 form-group">
+    <c-tree [data]="specialities" [(selectedNode)]="selectedSpeciality" fieldName="title" childrenFieldName="children"
+        searchFieldTitle="Title">
+
+    </c-tree>
+    <c-toast #toast>Speciality saved successfully</c-toast>
+</div>

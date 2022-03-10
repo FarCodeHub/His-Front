@@ -1,0 +1,43 @@
+
+<c-panel [iconClass]="'simple-icon-info'" [title]="'User Information'" *transloco="let t">
+
+  <div class="row">
+
+
+
+
+      <div class="col-6 form-group disabled">
+          <c-input label="{{t('UserName')}}" placeholder="" [(value)]="user.userName" value="" type="text">
+
+          </c-input>
+      </div>
+
+
+      <div class="col-6 form-group disabled">
+          <c-input label="{{t('Password')}}" placeholder="" [(value)]="user.password" value="" type="password">
+
+          </c-input>
+      </div>
+
+      <div class="col-6 form-group disabled">
+          <c-input label="{{t('NationalCode')}}" placeholder="" [(value)]="user.nationalCode" value="" type="text">
+
+          </c-input>
+      </div>
+
+      <div class="col-6 form-group disabled">
+        <c-input label="{{t('MobileNumber')}}" placeholder="" [(value)]="user.mobile" value="" type="text">
+
+        </c-input>
+    </div>
+
+      <div class="col-12 form-group">
+          <c-button label="{{t('save')}}" (click)="editUser(user)" [isFlat]="true" color="orange" persmissionName="Login">
+
+          </c-button>
+      </div>
+
+
+      <c-toast #toast>User saved successfully</c-toast>
+  </div>
+</c-panel>

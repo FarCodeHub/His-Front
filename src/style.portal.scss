@@ -1,0 +1,122 @@
+@media (max-width: 768px) {
+  .toogle-button {
+    &.filter-side {
+      background-color: var(--color-FFFFFF) !important;
+      border: 1px solid var(--color-EFEFEF) !important;
+      border-radius: var(--radius-15px) !important;
+      li {
+        a {
+          background: transparent !important;
+          position: relative;
+          &:first-child:after {
+            width: 1px;
+            content: '';
+            background-color: var(--color-EFEFEF) !important;
+            position: absolute;
+            top: 5px;
+            right: 0;
+            bottom: 5px;
+            display: block
+          }
+          span {
+            font-family: var(--font-regular), serif !important
+          }
+          span, i, svg {
+            color: var(--color-607D8B) !important
+          }
+        }
+      }
+    }
+  }
+}
+
+hr {
+  height: 1px;
+  background-color: var(--color-fourth) !important
+}
+
+.toogle-button {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  li {
+    flex: 1 1 auto;
+    display: flex;
+    a {
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex: 1 1 auto;
+      display: flex;
+      padding: 3px;
+      &.active {
+        background: linear-gradient(253.5deg, var(--color-1DE8B5) 4.04%, var(--color-45B69C) 96.6%);
+        border-radius: var(--radius-10px);
+        span {
+          font-family: var(--font-bold), serif
+        }
+        span, i, svg {
+          color: var(--color-FFFFFF)
+        }
+      }
+      i {
+        font-size: var(--fontsize-22px);
+        margin: 0 5px
+      }
+      span {
+        font-size: var(--fontsize-13px);
+        font-family: var(--font-regular), serif
+      }
+      span, i, svg {
+        color: var(--color-607D8B)
+      }
+    }
+  }
+}
+
+.checkboxlist {
+  list-style-type: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  li {
+    display: flex;
+    a {
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      display: flex;
+      padding: 5px;
+      &.active {
+        span, i, svg {
+          color: #21D19F
+        }
+      }
+      span, i, svg, input {
+        color: var(--color-607D8B);
+        margin-right: 8px
+      }
+    }
+  }
+}
+
+.panel {
+  color: var(--color-tertiary);
+  background: var(--color-FFFFFF);
+  border: 1px solid var(--color-fourth);
+  padding: 16px;
+  margin-bottom: 16px;
+  &.no-shadow {
+    border: 1px solid var(--color-EFEFEF);
+    box-shadow: none !important
+  }
+  .title {
+    color: var(--color-607D8B);
+    border-bottom: 1px solid var(--color-fourth);
+    padding: 5px;
+    i, svg {
+      margin-right: 5px
+    }
+  }
+}

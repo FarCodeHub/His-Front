@@ -1,0 +1,171 @@
+
+<main-search-template class="portal" *transloco="let t">
+  <div class="col-4 d-flex flex-column align-items-end ">
+      <div class="panel" style="width: 270px;">
+          <c-toggle-button style="margin-bottom: 16px;" [items]="searchOptions"
+              (onSelectionChange)="onSearchOptionChanged($event)">
+
+          </c-toggle-button>
+
+
+          <div class="panel">
+              <div class="title">
+                  <i class="fas fa-history"></i>
+                  <span>{{t('VisitTime')}}</span>
+              </div>
+              <div>
+                  <ul class="checkboxlist">
+                      <li *ngFor="let item of workingTimes">
+                          <a class="active">
+                              <input type="checkbox" (click)="onCheckboxWorkingTimeChange($event,item)">
+                              <i class="far fa-sun"></i>
+                              <span>{{item.title}}</span>
+                          </a>
+                      </li>
+
+
+                  </ul>
+              </div>
+
+            </div>
+
+            <div class="panel">
+              <div class="title">
+                  <i class="fas fa-history"></i>
+                  <span>{{t('HomeDelivery')}}</span>
+              </div>
+              <div>
+                  <ul class="checkboxlist">
+                      <li>
+                          <a class="active">
+                              <input type="checkbox" (click)="onCheckboxHomeDeliveryChange($event)">
+                              <i class="far fa-sun"></i>
+                              <span>{{t('HomeDelivery')}}</span>
+                          </a>
+                      </li>
+
+
+                  </ul>
+              </div>
+
+            </div>
+
+      </div>
+
+  </div>
+  <div class="col-7">
+      <div data-id="main-search">
+
+          <ng-template #seachControl>
+              <ul class="list-inline d-flex mb-0">
+                  <li class="list-inline-item"> <button type="button" name="" onclick="" data-action="gps"
+                          class="btn btn-sm px-2 py-1"> <i class="icons icon-gps"> </i> </button> </li>
+                  <li class="list-inline-item">
+                      <c-select label="Governorate" [floatLabel]="true">
+
+                      </c-select>
+
+                  </li>
+                  <li class="list-inline-item">
+                      <c-select label="Region" [floatLabel]="true">
+
+                      </c-select>
+                  </li>
+                  <li class="list-inline-item flex-fill">
+                      <div class="form-outline">
+                          <input type="search" name="" value="" placeholder="Type a name" id="search-label" [(ngModel)]="pharmacyFilter.title"
+                              class="form-control" />
+                          <label for="search-label" class="form-label"> </label>
+                      </div>
+                  </li>
+                  <li class="list-inline-item"> <button type="button" name="" onclick="" data-action="submit" (click)="SearchPharmacies()"
+                          class="btn btn-sm px-2 py-1"> <i class="icons icon-search">
+                          </i> </button> </li>
+              </ul>
+          </ng-template>
+          <div class="tab-content p-3 mx-3">
+              <div id="hospital-tab" class="tab-pane fade show active">
+
+                  <ng-container *ngTemplateOutlet="seachControl">
+
+                  </ng-container>
+              </div>
+              <div id="pharmacy-tab" class="tab-pane fade">
+                  <ng-container *ngTemplateOutlet="seachControl">
+
+                  </ng-container>
+              </div>
+              <div id="laboratory-tab" class="tab-pane fade">
+                  <ng-container *ngTemplateOutlet="seachControl">
+
+                  </ng-container>
+              </div>
+              <div id="radiology-tab" class="tab-pane fade">
+                  <ng-container *ngTemplateOutlet="seachControl">
+
+                  </ng-container>
+              </div>
+              <div id="doctor-tab" class="tab-pane fade">
+                  <ng-container *ngTemplateOutlet="seachControl">
+
+                  </ng-container>
+              </div>
+          </div>
+      </div>
+      <div class="doctor-list">
+          <div class="p-3">
+              {{pharmacies.length}} {{t('itemsfound')}}
+          </div>
+          <div class="doctor d-flex" *ngFor="let item of pharmacies" (click)="onItemClick(item)">
+              <div>
+                  <img src="assets/img/portal/doctor-avatar-1.png" />
+              </div>
+              <div class="d-flex flex-column ps-4 justify-content-space-between" style="flex: 1 1 auto;">
+                  <h3>
+                      {{item.title}}
+                  </h3>
+                  <!-- <div class="specialities">
+                      <i class="fas fa-lungs"></i>
+                      <span>{{item.specialities | pluck:"title" }}</span>
+                  </div> -->
+                  <div class="mt-2">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>{{item.address}}</span>
+                  </div>
+              </div>
+              <div class="d-flex flex-column">
+                  <div class="rating">
+                      <span class="rate-value">4.3</span>
+                      <div class="me-3">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="far fa-star"></i>
+                          <i class="far fa-star"></i>
+                      </div>
+                      <div class="me-1" style="color: #ccc;">
+                          <span>28</span>
+                          <i class="far fa-user"></i>
+                      </div>
+                  </div>
+                  <div class="mb-2 mt-2">
+                      <i class="fas fa-history"></i>
+                      <span>{{t('Evening')}}</span>
+                  </div>
+                  <div class="attribute">
+                      <i class="fas fa-hospital"></i>
+                      <span>{{t('InClinic')}}</span>
+                  </div>
+                  <div class="attribute">
+                      <i class="fas fa-phone-square"></i>
+                      <span>{{t('Telemedicine')}}</span>
+                  </div>
+                  <div class="attribute">
+                      <i class="fas fa-clinic-medical"></i>
+                      <span>{{t('InHome')}}</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</main-search-template>

@@ -1,0 +1,5 @@
+<div class="c-input d-flex justify-content-start input-wrapper">
+
+    <input *ngFor="let input of inputs;let i=index" [type]="type" [ngModel]="inputs[i]" (change)="onValueChanged()" />
+
+</div>

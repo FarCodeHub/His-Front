@@ -1,0 +1,30 @@
+<div class="panel">
+    <div class="title">
+        <i class="fas fa-restroom"></i>
+        <span>{{title}}</span>
+    </div>
+    <div>
+        <ul class="checkboxlist">
+            <li *ngFor="let item of items">
+                <a>
+                    <label class="checkbox-container">
+                        <input type="checkbox" [value]="item.id" [checked]="item.selected"
+                            (change)="onValueChanged(item)">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <i class="fas {{item.icon}}"></i>
+                    <span>{{item.title}}</span>
+                </a>
+            </li>
+            <!-- <li>
+                <a>
+                    <input type="checkbox">
+                    <i class="fas fa-female"></i>
+                    <span>Female</span>
+                </a>
+            </li> -->
+
+        </ul>
+    </div>
+</div>

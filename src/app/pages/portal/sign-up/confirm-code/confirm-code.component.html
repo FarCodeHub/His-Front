@@ -1,0 +1,23 @@
+<div class="content d-flex flex-column align-items-center" *transloco="let t">
+    <label>
+        <i class="far fa-phone"></i> 123456789
+    </label>
+    <c-button (click)="onAction(0)" label="Next" [isFlat]="false" color="green">
+       {{t('Changephonenumber')}}
+    </c-button>
+    <hr />
+    <label>
+        {{t('p9')}}
+    </label>
+    <c-digit-input inputCount="5">
+
+    </c-digit-input>
+    <label>
+         {{t('p9')}} {{time}}
+    </label>
+    <c-button (click)="onAction(1)" label="Next" [isFlat]="true" color="orange">
+
+    </c-button>
+    <br />
+    <br />
+</div>

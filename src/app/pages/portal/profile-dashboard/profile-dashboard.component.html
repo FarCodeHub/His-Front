@@ -1,0 +1,150 @@
+<div *transloco="let t" [ngClass]="globalService.direction == 'rtl' ? 'rtl' : 'ltr'" class="app-root portal">
+  <div data-id="main-search">
+    <ul class="nav nav-tabs nav-fill mb-4">
+      <li class="nav-item">
+        <a href="#hospital-tab" data-mdb-toggle="tab" class="nav-link p-0">
+          <i class="icons icon-hospital transition mb-1"> </i>
+          <span class="align-middle transition"> {{t('Hospitals')}} </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#pharmacy-tab" data-mdb-toggle="tab" class="nav-link p-0">
+          <i class="icons icon-pill transition mb-1"> </i>
+          <span class="align-middle transition"> {{t('Pharmacies')}} </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#laboratory-tab" data-mdb-toggle="tab" class="nav-link p-0">
+          <i class="icons icon-microscope transition mb-1"> </i>
+          <span class="align-middle transition"> {{t('Laboratories')}} </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#radiology-tab" data-mdb-toggle="tab" class="nav-link p-0">
+          <i class="icons icon-radiology transition mb-1"> </i>
+          <span class="align-middle transition"> {{t('Radiologys')}} </span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#doctor-tab" data-mdb-toggle="tab" class="nav-link active p-0">
+          <i class="icons icon-stethoscope transition mb-1"> </i>
+          <span class="align-middle transition"> {{t('Doctors')}} </span>
+        </a>
+      </li>
+    </ul>
+    <ng-template #seachControl>
+      <ul class="list-inline d-flex px-0 mb-0">
+        <li class="list-inline-item">
+          <button type="button" name="" onclick="" data-action="gps" class="btn btn-sm px-2 py-1">
+            <i class="icons icon-gps"> </i>
+          </button>
+        </li>
+        <li class="list-inline-item">
+          <c-select label="Governorate" [floatLabel]="true" appearance="no-border"> </c-select>
+        </li>
+        <li class="list-inline-item">
+          <c-select label="Region" [floatLabel]="true" appearance="no-border"> </c-select>
+        </li>
+        <li class="list-inline-item flex-fill">
+          <div class="form-outline">
+            <input type="search" name="" value="" placeholder="Type a name" id="search-label" class="form-control" />
+            <label for="search-label" class="form-label"> </label>
+          </div>
+        </li>
+        <li class="list-inline-item">
+          <button type="button" name="" (click)="search()" data-action="submit" class="btn btn-sm px-2 py-1"> <i class="icons icon-search"> </i> </button>
+        </li>
+      </ul>
+    </ng-template>
+    <div class="tab-content p-2 mx-3">
+      <div id="hospital-tab" class="tab-pane fade show active"> <ng-container *ngTemplateOutlet="seachControl"> </ng-container> </div>
+      <div id="pharmacy-tab" class="tab-pane fade"> <ng-container *ngTemplateOutlet="seachControl"> </ng-container> </div>
+      <div id="laboratory-tab" class="tab-pane fade"> <ng-container *ngTemplateOutlet="seachControl"> </ng-container> </div>
+      <div id="radiology-tab" class="tab-pane fade"> <ng-container *ngTemplateOutlet="seachControl"> </ng-container> </div>
+      <div id="doctor-tab" class="tab-pane fade"> <ng-container *ngTemplateOutlet="seachControl"> </ng-container> </div>
+    </div>
+  </div>
+ 
+    <article data-id="info-bar" style="margin-top: 20px;">
+        <div class="media align-items-center">
+            <div>
+                              <img src="{{baseUrl}}/Images/Avatars/{{patient.avatar}}" *ngIf="patient.avatar != null" width="100" height="100" alt="" class="img-fluid">
+                              <img src="assets/img/users/avatar-4.png" *ngIf="patient.avatar == null" width="100" height="100" alt="" class="img-fluid">
+            </div>
+            <div class="media-body mx-2">
+
+                <ul class="row info">
+                    <li class="col-12 pb-1 px-2 mb-0">
+                        <h3 class="name">{{patient.fullName}} </h3>
+                    </li>
+                    <li class="col-4 pb-1 px-2 mb-0">
+                        <label class="subtitle">
+                            {{patient.mobileNumber}}
+                        </label>
+                    </li>
+                    <li class="col-4 pb-1 px-2 mb-0">
+                        <label class="subtitle">
+                            {{patient.sex}}|{{patient.age}}
+                        </label>
+                    </li>
+                    <li class="col-4 pb-1 px-2 mb-0" style="text-align: right;">
+                        <c-button label="{{t('ViewFullProfile')}}" class="sm" [isFlat]="false" color="green"
+                            (click)="nagivateProfileInfo()">
+
+                        </c-button>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </article>
+    <div class="row mt-4">
+        <div class="col-4">
+            <div class="widget">
+                <h4>82</h4>
+                <h5>10</h5>
+                <div>
+
+                </div>
+                <label class="subtitle">{{t('Heartbeat')}} </label>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="widget">
+                <h4>82</h4>
+                <h5>10</h5>
+                <div>
+
+                </div>
+                <label class="subtitle">{{t('BloodPressure')}}</label>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="widget">
+                <h4>82</h4>
+                <h5>10</h5>
+                <div>
+
+                </div>
+                <label class="subtitle">{{t('SugarLevels')}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="widget d-flex " style="padding: 2rem;">
+                <div class="mr-4">
+                    <h3>{{t('Medicalinformationiseverywhere')}}</h3>
+                    <p class="subtitle">
+
+                    </p>
+                    <c-button label="{{t('BuyCardsOnline')}}" class="sm" [isFlat]="true" color="green">
+
+                    </c-button>
+                </div>
+                <div>
+                    <img class="subscribe-card" src="assets/img/portal/Carts pics.png" />
+                </div>
+            </div>
+</div>

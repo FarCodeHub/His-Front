@@ -1,0 +1,41 @@
+.c-input {
+  margin-bottom: 16px;
+  display: inline-block;
+  width: 100%;
+  background: #FFF;
+  border: 1px solid #C4C4C4;
+  border-radius: 15px;
+  height: 45px;
+  padding: 5px;
+  min-width: 200px;
+  transition: all 0.3s;
+  direction: ltr;
+  position: relative;
+
+  input {
+    border-width: 0;
+    color: #212121;
+    font-size: 15px;
+    line-height: 18px;
+    flex: 1 1 auto;
+    outline: none;
+    text-align: left;
+  }
+
+  &+input:focus {
+    border: 1px solid #1B68C2;
+  }
+
+  .picker {
+    border: none;
+    width: 80px;
+
+
+  }
+
+
+}
+
+input:focus+.control-label {
+  color: #1B68C2;
+}

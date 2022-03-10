@@ -1,0 +1,135 @@
+<div *transloco="let t">
+<c-panel iconClass="simple-icon-info" [title]="'Center Information'" >
+
+  <div class="row">
+    <div class="col-6 form-group disabled">
+      <c-input label="{{t('DepartmentName')}}" placeholder="" [(value)]="center.title" type="text">
+
+      </c-input>
+
+    </div>
+    <div class="col-6 form-group disabled">
+      <c-input label="{{t('DepartmentCode')}}" [(value)]="center.code" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+    <div class="col-6 form-group">
+      <c-select label="{{t('DepartmentType')}}" [data]="centerTypes" onChange="medicalCenter.type"
+        [(value)]="center.centerTypeId" fieldName="title" valueFieldName="id">
+
+      </c-select>
+    </div>
+    <div class="col-6 form-group">
+
+      <c-input label="{{t('Headofdepartment')}}" [(value)]="center.boss" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+      <c-select label="{{t('OwnerShipType')}}" [data]="ownershipTypes" [(value)]="center.ownerShipBaseId" valueFieldName="id"
+        placeholder=" " fieldName="name">
+
+      </c-select>
+    </div>
+
+  </div>
+</c-panel>
+<c-panel iconClass="iconsminds-location-2" [title]="'Address Information'">
+
+  <div class="row">
+    <div class="col-6 form-group">
+
+      <c-select label="{{t('Country')}}" [data]="countries" fieldName="title" valueFieldName="id"
+        (onChange)="selectCountry($event)">
+
+      </c-select>
+    </div>
+    <div class="col-6 form-group">
+      <c-select label="{{t('Province')}}" [data]="provinces" fieldName="title" valueFieldName="id"
+        (onChange)="selectProvice($event)" placeholder="Select Country">
+
+      </c-select>
+
+    </div>
+
+    <div class="col-6 form-group">
+      <c-select label="{{t('City')}}" [data]="cities" fieldName="title" valueFieldName="id" (onChange)="selectCity($event)">
+
+      </c-select>
+
+    </div>
+
+
+    <div class="col-6 form-group">
+      <c-select label="{{t('Zone')}}" [data]="zones" fieldName="title">
+
+      </c-select>
+
+    </div>
+
+    <div class="col-12 form-group">
+      <c-input label="{{t('Address')}}" [(value)]="center.centerLocation.address" placeholder="" value="" type="text"
+        [enabled]="true">
+
+      </c-input>
+
+    </div>
+    <div class="col-6 form-group">
+      <c-input label="{{t('PostalCode')}}" [(value)]="center.centerLocation.postalCode" placeholder="" value="" type="text"
+        [enabled]="true">
+
+      </c-input>
+
+    </div>
+
+    <div class="col-6 form-group">
+      <c-input label="{{t('AreaCode')}}" [(value)]="center.centerLocation.areaCode" placeholder="" value="" type="text"
+        [enabled]="true">
+
+      </c-input>
+
+    </div>
+
+
+
+  </div>
+</c-panel>
+<c-panel iconClass="simple-icon-phone" [title]="'Contact Information'">
+  <div class="row">
+    <div class="col-6 form-group">
+      <c-input label="{{t('HeadofdepartmentPhone')}}" [(value)]="center.bossPhone" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+    <div class="col-6 form-group">
+      <c-input label="{{t('DepartmentPhone')}}" [(value)]="center.phone" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+      <c-input label="{{t('DepartmentEmail')}}" [(value)]="center.email" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+      <c-select label="{{t('WorkingTimeType')}}" [data]="workTimeTypes" [(value)]="center.workTimeBaseId" valueFieldName="id"
+        placeholder=" " fieldName="name">
+
+      </c-select>
+    </div>
+
+    <div class="col-12 form-group">
+      <c-button label="{{t('Save')}}" (click)="saveCenter(center)" [isFlat]="true" color="orange" type="text" enabled="false">
+
+      </c-button>
+    </div>
+  </div>
+</c-panel>
+<div id="admission-information"> </div>
+<div id="contact-information"> </div>
+<div class="my-5"> </div>
+</div>
+<c-toast #toast>Center saved successfully</c-toast>

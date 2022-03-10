@@ -1,0 +1,52 @@
+<c-panel iconClass="simple-icon-info" [title]="'Buy Message'" *transloco="let t">
+
+  <div class="row">
+
+    <div class="col-6 form-group">
+      <c-select label="{{t('CenterName')}}" [data]="centers" valueFieldName="id" placeholder=" " fieldName="title">
+
+      </c-select>
+    </div>
+
+
+    <div class="col-6 form-group disabled">
+      <c-input label="{{t('Amount')}}" placeholder="" type="text">
+
+      </c-input>
+
+    </div>
+    <div class="col-6 form-group disabled">
+      <c-input label="{{t('DepartmentCode')}}" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+
+      <c-input label="{{t('Headofdepartment')}}" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+
+      <c-input label="{{t('Headofdepartment')}}" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+
+      <c-button (click)="addAmount()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+        {{t('BuyMessage')}}
+      </c-button>
+    </div>
+
+
+  </div>
+</c-panel>
+
+
+<div id="admission-information"> </div>
+<div id="contact-information"> </div>
+<div class="my-5"> </div>

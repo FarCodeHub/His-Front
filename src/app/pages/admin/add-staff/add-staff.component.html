@@ -1,0 +1,72 @@
+<c-panel [iconClass]="'simple-icon-info'" [title]="'Staff Information'" *transloco="let t">
+
+    <div class="row">
+
+        <div class="col-12 form-group">
+            <c-multi-input label="{{t('FullName')}}" [(value)]="medicalStaffModel.fullName" inputCount="4" placeholder=""
+                type="text" [enabled]="true">
+
+            </c-multi-input>
+
+        </div>
+
+        <div class="col-6 form-group disabled">
+            <c-input label="{{t('Age')}}" placeholder="" [(value)]="medicalStaffModel.age" value="" type="number">
+
+            </c-input>
+        </div>
+        <div class="col-6 form-group disabled">
+            <c-select label="{{t('Sex')}}" [data]="sexes" [(value)]="medicalStaffModel.sexId" fieldName="title"
+                valueFieldName="id">
+
+            </c-select>
+        </div>
+
+        <div class="col-6 form-group">
+            <c-select label="{{t('Type')}}" [data]="staffTypes" [(value)]="medicalStaffModel.type" fieldName="title"
+                valueFieldName="id">
+
+            </c-select>
+        </div>
+        <div class="col-6 form-group">
+
+            <c-select label="{{t('ScientificLevel')}}" [data]="scientificLevels" onChange="medicalStaffModel.scientificLevel"
+                [(value)]="medicalStaffModel.type" fieldName="title" valueFieldName="id">
+
+            </c-select>
+
+
+        </div>
+        <div class="col-6 form-group">
+
+            <c-select label="{{t('Expertise')}}" [data]="expertises" onChange="medicalStaffModel.expertise"
+                [(value)]="medicalStaffModel.expertiseId" fieldName="title" valueFieldName="id">
+            </c-select>
+
+        </div>
+
+        <div class="col-6 form-group">
+
+            <c-select label="{{t('Marriage')}}" [data]="marriage" [(value)]="medicalStaffModel.maritalBaseId" fieldName="title"
+                valueFieldName="id">
+            </c-select>
+
+        </div>
+
+        <div class="col-6 form-group">
+
+            <c-input label="{{t('Dateofbirth')}}" placeholder="" [(value)]="medicalStaffModel.birthDate" value="" type="text">
+            </c-input>
+        </div>
+
+        <div class="col-12 form-group">
+            <c-button label="{{t('Add')}}" (click)="addStaff(medicalStaffModel)" [isFlat]="true" color="orange"
+                persmissionName="Login">
+
+            </c-button>
+        </div>
+
+
+        <c-toast #toast>Personnels saved successfully</c-toast>
+    </div>
+</c-panel>

@@ -1,0 +1,24 @@
+<div class="row" *transloco="let t">
+
+<div class="col-12 form-group">
+    <c-button (click)="openModal()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+      {{t('AddLocation')}}
+    </c-button>
+
+    <b-modal #modal [modalConfig]="modalConfig">
+
+        <app-add-geo-location style="width: 100%;" [parentLocation]="selectedLocation">
+
+        </app-add-geo-location>
+
+    </b-modal>
+</div>
+<div class="col-12 form-group">
+    <c-tree [data]="geolocations" [(selectedNode)]="selectedLocation" fieldName="title" childrenFieldName="children"
+        searchFieldTitle="Title">
+
+    </c-tree>
+    <c-toast #toast>Location saved successfully</c-toast>
+</div>
+
+</div>

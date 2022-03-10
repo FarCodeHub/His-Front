@@ -1,0 +1,46 @@
+<div *transloco="let t" class="visits">
+  <div class="panel filter-area no-shadow">
+    <ul class="list-inline d-flex mb-0">
+      <li class="list-inline-item">
+        <c-select label="" [floatLabel]="true" [data]="dataColumns" appearance="no-border" fieldName="title" valueFieldName="field" parent="filter-area"> </c-select>
+      </li>
+      <li class="list-inline-item flex-fill">
+        <div class="form-outline w-100">
+          <input type="search" name="" value="" placeholder="Type a name" id="search-label" class="form-control" />
+          <label for="search-label" class="form-label"> </label>
+        </div>
+      </li>
+      <li class="list-inline-item">
+        <button type="button" name="" onclick="" data-action="submit" class="btn btn-sm px-2 py-1"> <i class="icons icon-search"> </i> </button>
+      </li>
+    </ul>
+  </div>
+  <div class="data pb-3">
+    <table class="grid-table">
+      <thead>
+        <tr class="my-3">
+          <th *ngFor="let column of dataColumns">
+            <a (click)="sort(1)">
+              <i class="fas fa-sort-alpha-up-alt mx-1"> </i>
+              <span> {{column.title}} </span>
+            </a>
+          </th>
+          <th>
+            <div class="sort-indicator">
+              <i class="icons icon-sort mx-1"> </i>
+              <span> {{t('SortedBy')}} : Date </span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of visits" (click)="onVisitClick(item)" class="mb-3">
+          <td> {{item.createTime}} </td>
+          <td class="bold"> {{item.doctorTitle}} </td>
+          <td> {{item.createTime}} </td>
+          <td> <i class="icons icon-share mx-2"> </i> <i class="icons icon-arrow-down mx-2"> </i> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

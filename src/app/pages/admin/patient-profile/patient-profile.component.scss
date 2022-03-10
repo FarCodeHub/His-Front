@@ -1,0 +1,55 @@
+@import 'src/_mixin.scss';
+
+[data-id='info-bar'] {
+  .media {
+    background-color: var(--color-FFFFFF) !important;
+    border-radius: var(--radius-20px) !important;
+    padding: 1rem 1.25rem;
+    @include box_shadow (0, 20px, 20px, 0, var(--color-000000-op5), null);
+
+    ul {
+      list-style-type: none;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: var(--radius-20px) !important
+    }
+
+    .info {
+      font-size: var(--fontsize-13px) !important;
+
+      li {
+        &:not(:nth-child(4n)) {
+          border-right: 1px solid var(--color-F7F7F7) !important
+        }
+
+        label {
+          font-family: var(--font-medium), serif !important;
+          color: var(--color-184F90) !important;
+          margin-bottom: 0;
+
+          &.name {
+            font-size: var(--fontsize-20px) !important;
+            font-family: var(--font-bold), serif !important
+          }
+        }
+
+        span {
+          font-family: var(--font-regular), serif !important;
+          color: var(--color-212121) !important;
+
+          &.age {
+            font-family: var(--font-medium), serif !important
+          }
+        }
+      }
+    }
+
+    .btn {
+      font-size: var(--fontsize-15px) !important;
+      font-family: var(--font-medium), serif !important
+    }
+  }
+}

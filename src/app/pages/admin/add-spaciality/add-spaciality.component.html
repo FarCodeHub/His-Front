@@ -1,0 +1,29 @@
+<div class="row d-flex" style="height: 400px;" *transloco="let t">
+    <div class="col-md-5">
+        <c-tree [data]="specialities" [(selectedNode)]="mainSelectedNode" fieldName="title" childrenFieldName="children"
+            searchFieldTitle="speciality">
+
+        </c-tree>
+    </div>
+    <div class="col-md-2 d-flex flex-column justify-content-center p-2">
+        <button class="add m-3 " (click)="add()">
+            <div class="title">{{t('add')}}</div>
+            <div class="m-2" style="text-align: center;"> <i class="fas fa-angle-left"></i></div>
+        </button>
+        <button class="remove m-3" (click)="remove()">
+            <div class="title">{{t('remove')}}</div>
+            <div class="m-2" style="text-align: center;"> <i class="fas fa-angle-right"></i></div>
+        </button>
+    </div>
+    <div class="col-md-5">
+        <c-tree [data]="selected_specialities" [(selectedNode)]="secondarySelectedNode" fieldName="title"
+            childrenFieldName="children" searchFieldTitle="speciality">
+
+        </c-tree>
+    </div>
+    <div class="col-6 form-group save p-2">
+        <c-button label="{{t('Save')}}" (click)="saveSpecilties()" [isFlat]="true" color="orange">
+
+        </c-button>
+    </div>
+</div>

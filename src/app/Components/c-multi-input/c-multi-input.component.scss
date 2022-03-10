@@ -1,0 +1,45 @@
+.c-input {
+  margin-bottom: 16px;
+  display: inline-block;
+  width: 100%;
+}
+
+.c-input label {
+  color: #888888;
+  margin-bottom: 2px !important;
+}
+
+.label-area {
+  padding-right: 15px;
+}
+
+.input-wrapper {
+  border: 1px solid #C4C4C4;
+  border-radius: 15px;
+  flex-flow: row nowrap;
+}
+
+.c-input input {
+  border-width: 0;
+  border-radius: 15px;
+  height: 45px;
+  padding: 20px 13px;
+  color: #212121;
+  font-size: 15px;
+  line-height: 18px;
+  transition: all 0.3s;
+  outline: none;
+  flex: 1 1 auto;
+}
+
+.control-label {
+  font-weight: bold;
+}
+
+.c-input input:focus {
+  border: 1px solid #1B68C2;
+}
+
+input:focus+.control-label {
+  color: #1B68C2;
+}

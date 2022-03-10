@@ -1,0 +1,70 @@
+<div class="menu" [ngClass]="globalService.direction == 'rtl' ? 'rtl' : 'ltr'">
+    <div class="main-menu">
+        <div class="scroll">
+            <ul class="list-unstyled px-0">
+
+                <li *ngFor="let item of menus" [ngClass]="{'active':item.routePath==router.url }">
+
+                    <ng-container *ngIf="item.children.length==0">
+                        <a [routerLink]="item.routePath" (click)="closeSubMenu()">
+                            <i class="{{item.iconUrl}}"></i>
+                            <span>{{item.menuTitle}}</span>
+                        </a>
+                    </ng-container>
+                    <ng-container *ngIf="item.children.length>0">
+                        <a (click)="toggleSubMenu(item)">
+                            <i class="{{item.iconUrl}}"></i>
+                            <span>{{item.menuTitle}}</span>
+                        </a>
+                    </ng-container>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="sub-menu" [ngClass]="{'show':showSubMenu}">
+        <div class="scroll">
+            <ul data-link="regular-3" class="list-unstyled px-0" style="display: block">
+                <li>
+                    <a href="#" data-toggle="collapse" data-target="#collapseRegular-3" aria-expanded="true"
+                        aria-controls="collapseRegular-3" class="rotate-arrow-icon">
+                        <i class="icons icon-arrow-down"> </i> <span class="d-inline-block"> Sub Menu </span>
+                    </a>
+                    <div id="collapseRegular-3" class="collapse show">
+                        <ul class="list-unstyled inner-level-menu px-0">
+                            <li *ngFor="let subItem of submenus">
+                                <a [routerLink]="subItem.routePath" (click)="toggleSubMenu(subItem)">
+                                    <i class="{{subItem.iconUrl}}"></i>
+                                    <span class="d-inline-block">
+                                        {{subItem.menuTitle}}
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <!-- <li>
+                    <a href="#" data-toggle="collapse" data-target="#collapseRegular-32" aria-expanded="false"
+                        aria-controls="collapseRegular-32" class="rotate-arrow-icon">
+                        <i class="icons icon-arrow-down"> </i> <span class="d-inline-block"> Sub Menu </span>
+                    </a>
+                    <div id="collapseRegular-32" class="collapse">
+                        <ul class="list-unstyled inner-level-menu" style="display: none;">
+                            <li> <a href="#"> <i class="icons icon-circle"> </i> <span class="d-inline-block"> Item
+                                        Selected </span> </a> </li>
+                            <li> <a href="#"> <i class="icons icon-circle"> </i> <span class="d-inline-block"> Item
+                                        Selected </span> </a> </li>
+                            <li> <a href="#"> <i class="icons icon-circle"> </i> <span class="d-inline-block"> Item
+                                        Selected </span> </a> </li>
+                            <li> <a href="#"> <i class="icons icon-circle"> </i> <span class="d-inline-block"> Item
+                                        Selected </span> </a> </li>
+                        </ul>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</div>

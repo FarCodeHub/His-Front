@@ -1,0 +1,74 @@
+.portal {
+  background-color: #F9F9F9;
+
+  //* {
+  //  text-align: left;
+  //}
+
+  --color-000000-a7: rgba(0, 0, 0, 0.07);
+  --color-secondary: #FFA400;
+  --color-tertiary: #607D8B;
+  --color-fourth: #EFEFEF;
+  --color-fifth: #BEBEBE;
+
+  --shadow-primary: 0 30px 30px -20px rgba(0, 0, 0, 0.07);
+  --shadow-secondary: 0 10px 15px -10px var(#FFA400);
+
+  --gradient-primary: linear-gradient(253.51deg, #1DE8B5 4.05%, #45B69C 95%);
+  --gradient-secondary: linear-gradient(255.21deg, var(--color-secondary) 4.05%, #FF6F00 110.72%);
+  --gradient-tertiary: linear-gradient(42.88deg, #5C92AC 24.25%, #365E7D 91.72%);
+
+  .position-absolute {
+    position: absolute;
+  }
+
+  .align-middle {
+    vertical-align: middle !important;
+  }
+
+  label {
+    color: var(--color-tertiary);
+  }
+
+  .icons {
+    width: auto;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    font-family: 'icon-pack', serif;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    margin-right: 0.2rem;
+    margin-left: 0.2rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+  .icon-logo:before {
+    content: '\e91a';
+  }
+
+  .icon-gps:before {
+    content: '\e90e';
+  }
+
+
+  .main-figure {
+    position: absolute !important;
+    left: 0;
+  }
+
+
+
+  .caption {
+    margin-top: 90px;
+    margin-bottom: 100px;
+    font-size: 22px !important;
+    font-family: sans-serif, serif !important;
+    color: #FFF !important;
+  }
+}

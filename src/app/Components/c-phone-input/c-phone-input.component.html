@@ -1,0 +1,11 @@
+<div class="c-input d-flex justify-content-start align-items-center">
+
+    <select class="picker">
+        <option value="phone"><i class="fas fa-email"></i> +964</option>
+        <option value="email"><i class="fas fa-email"></i> +98</option>
+        <option value="visit"><i class="fas fa-home"></i> +1</option>
+    </select>
+    <input [id]="id" [name]="id" type="phone" [placeholder]="placeholder" [disabled]="!enabled" [(ngModel)]="value"
+        (change)="onValueChanged()" />
+
+</div>

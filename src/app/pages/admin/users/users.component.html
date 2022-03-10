@@ -1,0 +1,27 @@
+<div class="col-12 form-group" *transloco="let t">
+    <c-button (click)="openAddUser()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+      {{t('AddUser')}}
+    </c-button>
+
+    <b-modal #modal [modalConfig]="modalConfig">
+
+        <app-add-user style="width: 100%;" [medicalCenter]="medicalCenter">
+
+        </app-add-user>
+
+    </b-modal>
+
+    <b-modal #editUserModal [modalConfig]="editUserModalConfig">
+
+      <app-edit-user style="width: 100%;" [user]="user">
+
+      </app-edit-user>
+
+  </b-modal>
+</div>
+<div class="col-12 form-group">
+    <c-grid [columns]="dataColumns" [data]="users" (onItemClick)="onItemClicked($event)">
+
+    </c-grid>
+
+</div>

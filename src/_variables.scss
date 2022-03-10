@@ -1,0 +1,83 @@
+$font-code: cbn90m;
+:root {
+  --fontsize-08px: 0.5000rem;
+  --fontsize-10px: 0.6250rem;
+  --fontsize-12px: 0.7500rem;
+  --fontsize-13px: 0.8125rem;
+  --fontsize-14px: 0.8750rem;
+  --fontsize-15px: 0.9375rem;
+  --fontsize-17px: 1.0625rem;
+  --fontsize-18px: 1.1250rem;
+  --fontsize-20px: 1.2500rem;
+  --fontsize-22px: 1.3750rem;
+  --fontsize-23px: 1.4375rem;
+  --fontsize-25px: 1.5625rem;
+  --fontsize-35px: 2.1875rem;
+  --fontsize-70px: 4.3750rem;
+  /* ----------------------------------------------------------------------- */
+  --font-regular: 'roboto-regular';
+  --font-medium: 'roboto-medium';
+  --font-bold: 'roboto-bold';
+  --font-black: 'roboto-black';
+  --font-light: 'roboto-light';
+  --font-sans-bold: 'sansation-bold';
+  --font-markaziText-regular: 'markaziText-regular';
+  .rtl {
+    --font-regular: '';
+    --font-medium: '';
+    --font-bold: '';
+    --font-black: '';
+    --font-light: '';
+    --font-sans-bold: '';
+    --font-markaziText-regular: '';
+  }
+  /* ----------------------------------------------------------------------- */
+  --color-primary: X;
+  --color-secondary: X;
+  --color-tertiary: X;
+  --color-fourth: X;
+  --color-fifth: X;
+  --color-000000: #000000;
+  --color-000000-op5: rgba(0, 0, 0, 0.05);
+  --color-039BE5: #039BE5;
+  --color-1782FF: #1782FF;
+  --color-184F90: #184F90;
+  --color-1B68C2: #1b68c2;
+  --color-1DE8B5: #1de8b5;
+  --color-212121: #212121;
+  --color-263238: #263238;
+  --color-365E7D: #365E7D;
+  --color-454545: #454545;
+  --color-45B69C: #45B69C;
+  --color-5C92AC: #5C92AC;
+  --color-607D8B: #607D8B;
+  --color-888888: #888888;
+  --color-C4C4C4: #C4C4C4;
+  --color-E5E5E5: #E5E5E5;
+  --color-E8EEF4: #E8EEF4;
+  --color-EAFAF6: #EAFAF6;
+  --color-EFEFEF: #EFEFEF;
+  --color-F3F3F3: #F3F3F3;
+  --color-F5FBFF: #F5FBFF;
+  --color-F7F7F7: #F7F7F7;
+  --color-F9F9F9: #F9F9F9;
+  --color-FCFCFC: #FCFCFC;
+  --color-FF5252: #FF5252;
+  --color-FF6F00: #FF6F00;
+  --color-FFA400: #FFA400;
+  --color-FFCA1A: #FFCA1A;
+  --color-FFFFFF: #FFFFFF;
+  /* ----------------------------------------------------------------------- */
+  --gradient-primary: linear-gradient(253.51deg, var(--color-1DE8B5) 4.05%, var(--color-45B69C) 95%);
+  --gradient-secondary: linear-gradient(255.21deg, var(--color-FFA400) 4.05%, var(--color-FF6F00) 110.72%);
+  --gradient-tertiary: linear-gradient(42.88deg, var(--color-5C92AC) 24.25%, var(--color-365E7D) 91.72%);
+  /* ----------------------------------------------------------------------- */
+  --radius-05px: 0.3125rem;
+  --radius-10px: 0.6250rem;
+  --radius-15px: 0.9375rem;
+  --radius-20px: 1.2500rem;
+  /* ----------------------------------------------------------------------- */
+  --shadow-primary: 0 30px 30px -20px var(--color-000000-op5);
+  --shadow-secondary: 0 10px 15px -10px var(--color-000000-op5);
+  --shadow-tertiary: 0 15px 30px -20px var(--color-000000-op5);
+}

@@ -1,0 +1,19 @@
+<div class="col-12 form-group justify-content-start d-flex" *transloco="let t">
+  <c-button (click)="openAddCenter()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+    {{t('AddCenter')}}
+  </c-button>
+
+  <b-modal #modal [modalConfig]="modalConfig">
+
+    <app-add-center style="width: 100%;">
+
+    </app-add-center>
+
+  </b-modal>
+</div>
+<div class="col-12 form-group">
+  <c-grid [columns]="dataColumns" [data]="centers" (onItemClick)="onItemClicked($event)">
+
+  </c-grid>
+
+</div>

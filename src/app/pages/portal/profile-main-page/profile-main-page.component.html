@@ -1,0 +1,12 @@
+<div class="profile-container" [ngClass]="globalService.direction == 'rtl' ? 'rtl' : 'ltr'">
+    <app-portal-nav-bar [(collapsed)]="menuCollapsed"></app-portal-nav-bar>
+    <app-portal-side-menu [collapsed]="menuCollapsed"></app-portal-side-menu>
+    <main [ngClass]="this.menuCollapsed ? 'unpushed' : 'pushed'">
+
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+
+        </div>
+
+    </main>
+</div>

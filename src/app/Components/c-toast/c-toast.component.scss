@@ -1,0 +1,23 @@
+.c-toast {
+  visibility: collapse;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  padding: 20px;
+  color: #1FAA00;
+  background: rgba(227, 244, 215, 0.97);
+  opacity: 0.95;
+  border-radius: 20px;
+  transition: all 0.5s;
+  opacity: 0;
+
+  svg,
+  i {
+    color: #1FAA00;
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+}

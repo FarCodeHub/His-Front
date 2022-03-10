@@ -1,0 +1,41 @@
+<div class="portal flex-column d-flex" style="direction: ltr;text-align: left;" *transloco="let t">
+    <section data-id="main-section" class="row">
+        <figure class="main-figure">
+            <img src="assets/img/portal/sign-up-bg.png" class="col-6" alt="بوابة الصحة" />
+
+        </figure>
+
+    </section>
+    <section class="row">
+        <div class="caption row">
+            <div class="col-6 d-flex flex-column align-items-end">
+                <span class="align-middle"> {{t('HealthPortal')}}
+                </span>
+                <h1>{{t('Signup')}}</h1>
+            </div>
+            <div class="col-6  d-flex justify-content-start">
+
+                <div data-id="main-logo">
+
+                    <svg width="48" height="55" viewBox="0 0 48 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M1.47059 55C0.658408 55 0 54.3416 0 53.5294V1.47059C0 0.658406 0.658405 1.9186e-07 1.47059 4.2853e-07L46.5294 1.35587e-05C47.3416 1.37954e-05 48 0.658418 48 1.4706V45.2794C48 46.0916 47.3416 46.75 46.5294 46.75L26.057 46.7499V53.5293C26.057 54.3415 25.3986 54.9999 24.5864 54.9999L1.47059 55ZM8.22847 45.2794C8.22847 46.0916 8.88687 46.75 9.69905 46.75H23.3142L23.3142 52.25H2.74286V2.75H45.2571V44H26.057V39.875L38.3008 39.875C39.113 39.875 39.7714 39.2166 39.7714 38.4044L39.7714 9.72062C39.7714 8.90843 39.113 8.25003 38.3008 8.25003H9.69905C8.88687 8.25003 8.22847 8.90843 8.22847 9.72062V45.2794ZM32.9143 16.5956C32.9143 15.7835 32.2559 15.125 31.4437 15.125H16.5563C15.7441 15.125 15.0857 15.7834 15.0857 16.5956V38.4044C15.0857 39.2166 15.7441 39.875 16.5563 39.875L23.3142 39.875L23.3142 44H10.9713V11H37.0285V37.125H26.057V31.625H31.4436C32.2558 31.625 32.9142 30.9666 32.9142 30.1545L32.9143 16.5956ZM30.1713 17.875V28.875H24.7848C23.9726 28.875 23.3142 29.5334 23.3142 30.3456V37.125H17.8286V17.875H30.1713Z"
+                            fill="url(#paint0_linear)" />
+                        <defs>
+                            <linearGradient id="paint0_linear" x1="45.9813" y1="1.88034" x2="-7.99607" y2="15.8283"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#1DE8B5" />
+                                <stop offset="1" stop-color="#45B69C" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div>
+            <app-phone-number (action)="action('confirm-code')" *ngIf="mode=='phone'"></app-phone-number>
+            <app-confirm-code *ngIf="mode=='confirm-code'"></app-confirm-code>
+        </div>
+    </section>
+
+</div>

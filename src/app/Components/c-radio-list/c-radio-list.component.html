@@ -1,0 +1,8 @@
+<div class="c-radio-list ">
+    <div *ngFor="let item of displayedData; let i = index">
+        <input type="radio" id="{{id}}_{{i}}" name="fav_language" value="{{item[valueFieldName]}}"
+            (click)="selectItem(item)">
+        <label for="{{id}}_{{i}}">{{item[fieldName]}}</label><br>
+    </div>
+
+</div>

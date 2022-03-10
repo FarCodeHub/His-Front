@@ -1,0 +1,15 @@
+<div class="col-12 form-group" *transloco="let t">
+    <c-button (click)="openAddStaff()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+      {{t('AddPersonnel')}}
+    </c-button>
+
+    <b-modal #modal [modalConfig]="modalConfig">
+        <app-add-staff style="width: 100%;" [medicalCenter]="medicalCenter"></app-add-staff>
+    </b-modal>
+</div>
+<div class="col-12 form-group">
+    <c-grid [columns]="dataColumns" [data]="staffs">
+
+    </c-grid>
+
+</div>

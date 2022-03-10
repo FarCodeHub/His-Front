@@ -1,0 +1,92 @@
+
+<nav class="navbar fixed-top" [ngClass]="globalService.direction == 'rtl' ? 'rtl' : 'ltr'">
+
+
+
+    <div class="d-flex align-items-center navbar-left" [ngClass]="{'collapsed':collapsed}">
+
+        <a class="menu-button d-none d-md-block d-flex" (click)="onMenuBarClicked()">
+
+            <svg class="sub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17">
+                <rect x="1.56" y="0.5" width="18" height="1" />
+                <rect x="1.56" y="7.5" width="18" height="1" />
+                <rect x="1.56" y="15.5" width="18" height="1" />
+            </svg>
+
+        </a>
+        <a href="#" class="menu-button-mobile d-xs-block d-sm-block d-md-none">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 17">
+                <rect x="0.5" y="0.5" width="25" height="1" />
+                <rect x="0.5" y="7.5" width="25" height="1" />
+                <rect x="0.5" y="15.5" width="25" height="1" />
+            </svg>
+        </a>
+        <h4 class="page-title">
+            Dashboard
+        </h4>
+
+    </div>
+
+
+    <div class="navbar-right">
+        <div class="header-icons d-inline-block align-middle">
+
+
+            <div class="position-relative d-none d-sm-inline-block">
+                <button class="header-icon btn btn-empty" type="button" id="globalDropdown" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="icons icon-global"> </i>
+                </button>
+                <div id="globalDropdown" class="dropdown-menu dropdown-menu-right dropdown-list">
+                    <div class="dropdown-item d-flex p-2">
+                        <a href="#"> <i class="css-sprite icon-uk mx-0"> </i> </a>
+                        <div class="flex-fill pl-2"> <a href="#">
+                                <p class="mb-0"> English </p>
+                            </a> </div>
+                    </div>
+                    <div class="dropdown-item d-flex p-2">
+                        <a href="#"> <i class="css-sprite icon-iraq mx-0"> </i> </a>
+                        <div class="flex-fill pl-2"> <a href="#">
+                                <p class="mb-0"> العربیة </p>
+                            </a> </div>
+                    </div>
+                    <div class="dropdown-item d-flex p-2">
+                        <a href="#"> <i class="css-sprite icon-germany mx-0"> </i> </a>
+                        <div class="flex-fill pl-2"> <a href="#">
+                                <p class="mb-0"> Deutsche </p>
+                            </a> </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">
+                <i class="simple-icon-size-fullscreen"></i>
+                <i class="simple-icon-size-actual" *ngIf="fullScreen"></i>
+            </button>
+
+        </div>
+
+        <div class="user d-inline-block">
+          <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <span class="name">{{patient.fullName}}</span>
+              <span>
+                  <img *ngIf="patient.avatar != null" alt=" " src="{{baseUrl}}/Images/Avatars/{{patient.avatar}}" />
+                  <img *ngIf="patient.avatar == null" alt=" " src="assets/img/users/unknow.png" />
+              </span>
+          </button>
+
+          <div class="dropdown-menu dropdown-menu-right mt-3">
+              <a class="dropdown-item" href="#"></a>
+              <!-- <a class="dropdown-item" href="#">ویژگی ها</a>
+              <a class="dropdown-item" href="#">تاریخچه</a>
+              <a class="dropdown-item" href="#">پشتیبانی</a> -->
+              <a class="dropdown-item" (click)="logout()">خروج</a>
+          </div>
+
+      </div>
+    </div>
+
+</nav>

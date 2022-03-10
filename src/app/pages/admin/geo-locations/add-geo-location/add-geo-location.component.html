@@ -1,0 +1,28 @@
+<div class="row" *transloco="let t">
+    <div class="col-12 ">
+        <ng-container *ngIf="parentLocation!=null">
+            <c-input label="{{t('ParentLocation')}}" placeholder="" [(value)]="parentLocation.title" type="text"
+                [enabled]="false">
+
+            </c-input>
+        </ng-container>
+    </div>
+    <div class="col-6 ">
+        <c-input label="{{t('Title')}}" placeholder="" [(value)]="geoLocation.title" type="text">
+
+        </c-input>
+
+    </div>
+    <div class="col-6">
+        <c-input label="Title 2(Arabic)" [(value)]="geoLocation.titleLang2" placeholder="" value="" type="text">
+
+        </c-input>
+    </div>
+    <div class="col-12 form-group">
+        <c-button label="{{t('Save')}}" (click)="save()" [isFlat]="true" color="orange" type="text" enabled="false">
+
+        </c-button>
+    </div>
+
+
+</div>

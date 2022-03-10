@@ -1,0 +1,21 @@
+<div class="row"   *ngFor = "let item of prescriptionDrugs">
+
+  <div class="col-4 form-group disabled">
+    <c-input label="Drug Title" [(value)]="item.drugDetails.drugName"  placeholder="" type="text">
+
+    </c-input>
+</div>
+
+<div class="col-4 form-group disabled">
+  <c-input label="Detail" [(value)]="item.drugDetails.details" placeholder="" type="text">
+
+  </c-input>
+</div>
+
+<div class="col-4 form-group disabled">
+  <c-input label="Note" [(value)]="item.drugDetails.notes" placeholder="" type="text">
+
+  </c-input>
+</div>
+
+    </div>

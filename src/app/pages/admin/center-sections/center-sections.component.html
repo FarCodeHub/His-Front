@@ -1,0 +1,15 @@
+<div class="col-12 form-group" *transloco="let t">
+  <c-button (click)="openAddSection()" class="filter mr-2 ml-2" [isFlat]="true" color="blue">
+    {{t('AddSection')}}
+  </c-button>
+
+  <b-modal #modal [modalConfig]="modalConfig">
+    <app-add-section style="width: 100%;" [medicalCenter]="medicalCenter"></app-add-section>
+  </b-modal>
+</div>
+<div class="col-12 form-group">
+  <c-grid [columns]="dataColumns" [data]="sections">
+
+  </c-grid>
+
+</div>

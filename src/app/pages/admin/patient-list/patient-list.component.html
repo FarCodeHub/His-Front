@@ -1,0 +1,12 @@
+<div class="row" *transloco="let t">
+    <h1 class="main-title">
+      {{t('Patientslist')}}
+    </h1>
+    <hr />
+</div>
+<div class="col-12 form-group">
+    <c-grid [columns]="dataColumns" [data]="patients" (onItemClick)="onItemClicked($event)">
+
+    </c-grid>
+
+</div>

@@ -1,0 +1,71 @@
+<div *transloco="let t">
+<c-panel [iconClass]="'simple-icon-info'" [title]="'Center Information'">
+
+  <div class="row">
+    <div class="col-6 form-group disabled">
+      <c-input label="{{t('DepartmentName')}}" placeholder="" [(value)]="medicalCenter.title" type="text">
+
+      </c-input>
+
+    </div>
+    <div class="col-6 form-group disabled">
+      <c-input label="{{t('DepartmentCode')}}" [(value)]="medicalCenter.code" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+    <div class="col-6 form-group">
+      <c-select label="{{t('DepartmentType')}}" [data]="centerTypes" onChange="medicalCenter.type"
+        [(value)]="medicalCenter.centerTypeId" fieldName="title" valueFieldName="id">
+
+      </c-select>
+
+ 
+    </div>
+    <div class="col-6 form-group">
+
+      <c-input label="{{t('Headofdepartment')}}" [(value)]="medicalCenter.boss" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+
+
+    </div>
+
+  </div>
+</c-panel>
+
+<c-panel [iconClass]="'simple-icon-phone'" [title]="'Contact Information'">
+  <div class="row">
+    <div class="col-6 form-group">
+      <c-input label="{{t('HeadofdepartmentPhone')}}" [(value)]="medicalCenter.bossPhone" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+    <div class="col-6 form-group">
+      <c-input label="{{t('DepartmentPhone')}}" [(value)]="medicalCenter.phone" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group">
+      <c-input label="{{t('DepartmentEmail')}}" [(value)]="medicalCenter.email" placeholder="" value="" type="text">
+
+      </c-input>
+    </div>
+
+    <div class="col-6 form-group"></div>
+
+    <div class="col-6 form-group">
+      <c-button label="{{t('Save')}}" (click)="saveSecion(medicalCenter)" [isFlat]="true" color="orange" type="text"
+        enabled="false">
+
+      </c-button>
+    </div>
+  </div>
+</c-panel>
+<div id="admission-information"> </div>
+<div id="contact-information"> </div>
+<div class="my-5"> </div>
+</div>

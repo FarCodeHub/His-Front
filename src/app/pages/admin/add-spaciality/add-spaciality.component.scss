@@ -1,0 +1,47 @@
+.add {
+  border: 2px solid #00C853;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0;
+  text-align: center;
+
+  .title {
+    background: #00C853;
+    border-radius: 10px;
+    text-align: center;
+    color: #FFF;
+  }
+
+  svg,
+  i {
+    color: #00C853;
+  }
+
+
+}
+
+.remove {
+  border: 2px solid #FF5252;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0;
+  text-align: center;
+
+  .title {
+    background: #FF5252;
+    border-radius: 10px;
+    text-align: center;
+    color: #FFF;
+  }
+
+  .save {
+    margin: 32px;
+  }
+
+
+  svg,
+  i {
+    color: #FF5252;
+  }
+
+}

@@ -1,0 +1,34 @@
+<div class="c-tree">
+    <div class="filter-area">
+        <div class="filters d-flex">
+            <div class="search-dropdown ml-auto">
+                <input type="search" placeholder="Search in {{searchFieldTitle}}">
+            </div>
+        </div>
+
+    </div>
+    <div class="data-area mt-2">
+        <ul class="tree">
+            <ng-template #recursiveList let-list="list">
+                <li *ngFor="let node of list">
+                    <div class="item d-flex align-items-center" [ngClass]="{'selected':selectedNode==node}"
+                        (click)="expandNode(node)">
+
+                        <i *ngIf="node[childrenFieldName]  && node[childrenFieldName].length > 0"
+                            class="fas fa-plus"></i>
+                        <span style="flex: 1 1 auto;"> {{node[fieldName] }}</span>
+                        <span class="extra-options" *ngIf="extraOptions">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </span>
+
+                    </div>
+                    <ul *ngIf="(node[childrenFieldName]  && node[childrenFieldName].length> 0) && node.expanded">
+                        <ng-container *ngTemplateOutlet="recursiveList; context:{ list: node[childrenFieldName] }">
+                        </ng-container>
+                    </ul>
+                </li>
+            </ng-template>
+            <ng-container *ngTemplateOutlet="recursiveList; context:{ list: data}"></ng-container>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+.modal-header {
+  border-bottom: 1px solid #c4c4c477 !important;
+  padding: 0 0 15px 0 !important;
+  margin: 30px 30px 0 30px !important
+}
+
+.modal-title {
+  color: #1976D2 !important
+}
+
+.modal-body {
+  &.login {
+    padding: 0
+  }
+}
+
+.modal-footer {}

@@ -1,0 +1,15 @@
+<div class="content d-flex flex-column align-items-center" *transloco="let t">
+    <label>
+      {{t('EnteryourPhoneNumber')}}
+    </label>
+    <c-phone-input></c-phone-input>
+    <div>
+        <input type="checkbox">
+        <label> {{t('p11')}}</label>
+    </div>
+    <c-button (click)="onAction()" label="Next" [isFlat]="true" color="orange">
+
+    </c-button>
+    <br />
+    <br />
+</div>

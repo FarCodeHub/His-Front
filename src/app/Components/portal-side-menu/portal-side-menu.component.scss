@@ -1,0 +1,187 @@
+@import '../../../_variables.scss';
+
+.menu {
+
+  --normal-width: 210px;
+  --collapsed-width: 68px;
+
+  border-radius: 20px;
+  position: fixed;
+  width: var(--normal-width);
+  transition: all 0.3s;
+  top: 10px;
+  left: 10px;
+  bottom: 0;
+  z-index: 1040;
+  height: calc(100%);
+
+  &.rtl {
+    right: 10px;
+    left: auto;
+    .bg {
+      right: 0;
+      left: auto;
+      transform: scaleX(-1)
+    }
+    .main-menu {
+      right: 10px;
+      left: auto;
+      ul {
+        padding-right: 0 !important;
+        padding-left: 10px;
+        li {
+          padding-right: 15px;
+          padding-left: 0;
+          &.active {
+            &:after {
+              border-radius: 10px 0 0 10px;
+              right: 0;
+              left: auto
+            }
+          }
+          a {
+            span {
+              margin-right: 10px;
+              margin-left: 0
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bg {
+    position: absolute;
+    width: var(--normal-width);
+    transition: all 0.3s;
+    left: 0px;
+    z-index: 0;
+    height: calc(100%);
+
+    svg {
+      height: calc(100% - 20px);
+      width: 100%;
+    }
+  }
+
+  .caption {
+    color: #FFF;
+    margin-bottom: 20px;
+  }
+
+  .main-menu {
+    width: var(--normal-width);
+    transition: all 0.3s;
+    height: calc(100% - 60px);
+    z-index: 3;
+    position: fixed;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    left: 10px;
+    border-radius: 7px;
+
+    ul {
+      padding-right: 10px;
+
+      li {
+        position: relative;
+        margin-bottom: 5px;
+        padding-left: 15px;
+
+        a {
+          display: flex;
+          cursor: pointer;
+          align-items: center;
+          opacity: 1;
+          font-size: 15px !important;
+          font-family: var(--font-medium), serif !important;
+          color: #FFF !important;
+          border-radius: 15px !important;
+          padding: 4px 10px !important;
+
+          span {
+            color: #FFF !important;
+            margin-left: 10px;
+          }
+
+        }
+
+        i {
+          font-size: 24px;
+          line-height: 42px;
+
+          svg {
+            height: 42px;
+            font-size: 24px;
+          }
+        }
+
+        span {
+          text-align: center;
+        }
+      }
+
+
+      li.active {
+        a {
+
+          font-family: var(--font-bold), serif !important;
+          color: #FFF !important;
+          background: #21D19F;
+          border-radius: 15px;
+        }
+
+        &:after {
+          background-color: #FFA400;
+          content: " ";
+          background: #FFA400;
+          border: 3px solid #FFF;
+          color: #fff;
+          border-radius: 0 10px 10px 0;
+          position: absolute;
+          width: 7px;
+          height: 25px;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+        }
+      }
+
+      li:hover {
+        a {
+
+          font-family: var(--font-bold), serif !important;
+          color: #FFF !important;
+          background: #21D19F;
+          border-radius: 15px;
+        }
+      }
+    }
+
+    li ul li:hover {
+      list-style: disc;
+      /* Add content: \2022 is the CSS Code/unicode for a bullet */
+      color: #FFA400;
+      /* Change the color */
+    }
+
+  }
+
+  &.collapsed {
+    width: var(--collapsed-width);
+
+    .bg {
+      width: var(--collapsed-width);
+    }
+
+    .main-menu {
+      width: var(--collapsed-width);
+
+      ul {
+        padding-right: 8px;
+      }
+    }
+
+
+  }
+}

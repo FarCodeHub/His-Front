@@ -1,0 +1,196 @@
+<main-search-template *transloco="let t" class="portal">
+  <div class="col-4 align-items-end flex-column d-flex">
+    <div class="panel" style="width: 300px">
+      <c-toggle-button [items]="searchOptions" [hideInactiveTitle]="true" (onSelectionChange)="onSearchOptionChanged($event)" class="mt-2"> </c-toggle-button>
+      <hr />
+      <div class="time-pick">
+        <span class="caption"> {{t('ChooseConsulationTime')}} </span>
+        <div class="flex-wrap d-flex">
+          <div class="time-cell"> 09:00 </div>
+          <div class="time-cell"> 09:30 </div>
+          <div class="time-cell"> 10:00 </div>
+          <div class="time-cell disabled"> 10:30 </div>
+          <div class="time-cell"> 11:00 </div>
+          <div class="time-cell"> 11:30 </div>
+          <div class="time-cell"> 12:00 </div>
+          <div class="time-cell active"> 12:30 </div>
+          <div class="time-cell"> 13:00 </div>
+          <div class="time-cell"> 13:30 </div>
+          <div class="time-cell"> 14:00 </div>
+          <div class="time-cell"> 14:30 </div>
+        </div>
+        <div data-toggle="more" class="justify-content-center d-flex my-2"> <span class="mx-1"> More </span> <i class="icons icon-arrow-down"> </i> </div>
+        <footer class="align-items-center justify-content-between d-flex mt-4">
+          <div> <i class="icons icon-arrow-left"> </i> {{t('PreviousDay')}} </div>
+          <div class="date"> 20 May <i class="icons icon-calendar"> </i> </div>
+          <div> {{t('NextDay')}} <i class="icons icon-arrow-right"> </i> </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <div class="col-7">
+    <div class="panel">
+      <div class="doctor">
+        <header class="align-items-center justify-content-between d-flex mb-3">
+          <nav>
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"> <a href="#"> Home </a> </li>
+              <li class="breadcrumb-item"> <a href="#"> Search Doctors </a> </li>
+              <li class="breadcrumb-item active"> Dr. Eddard Stark </li>
+            </ol>
+          </nav>
+          <ul data-id="post-ctrl" class="list-inline text-center mb-0">
+            <li class="list-inline-item"> <i class="icons icon-heart-2 c-pointer"> </i> </li>
+            <li class="list-inline-item"> <i class="icons icon-share c-pointer"> </i> </li>
+          </ul>
+        </header>
+        <div class="header d-flex">
+          <div class="flex-column d-flex">
+            <img src="assets/img/portal/doctor-avatar-1.png" width="" height="" alt="" />
+            <div class="rating align-items-center mt-2">
+              <span class="rate-value"> 4.3 </span>
+              <div class="me-2">
+                <i class="icons icon-star-2 active"> </i>
+                <i class="icons icon-star-2 active"> </i>
+                <i class="icons icon-star-2 active"> </i>
+                <i class="icons icon-star-2"> </i>
+                <i class="icons icon-star-2"> </i>
+              </div>
+              <div class="d-flex" style="color: #CCC">
+                <span> 28 </span>
+                <i class="icons icon-user p-0"> </i>
+              </div>
+            </div>
+          </div>
+          <div class="justify-content-space-between flex-column d-flex ps-4">
+            <div class="flex-fill">
+              <h3 class="mt-2 mb-3"> {{doctor.fullName}} </h3>
+              <div class="specialities">
+                <i class="css-sprite icon-kidney"> </i>
+                <span class="mx-1"> {{doctor.specialities | pluck:"title" }} </span>
+              </div>
+            </div>
+            <div>
+              <div class="attribute my-1">
+                <i class="icons icon-location-2 mx-0"> </i>
+                <span class="caption mx-1"> {{t('Address')}} : </span>
+                <span class="mx-1"> {{doctor.address}} </span>
+              </div>
+              <div class="attribute my-1">
+                <i class="icons icon-phone mx-0"> </i>
+                <span class="caption mx-1"> {{t('Phone')}} : </span>
+                <strong class="mx-1"> {{doctor.phone}} </strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3 mb-1 mx-n3">
+          <div class="col-6 attribute my-1">
+            <i class="icons icon-global-2 mx-0"> </i>
+            <span class="caption mx-1"> {{t('SpeakLanguage')}} : </span>
+            <strong class="mx-1"> {{t('English, Arabic')}} </strong>
+          </div>
+          <div class="col-6 attribute my-1">
+            <i class="icons icon-location mx-0"> </i>
+            <span class="caption mx-1"> {{t('VisitTime')}} : </span>
+            <strong class="mx-1"> In Clinic </strong>
+          </div>
+          <div class="col-6 attribute my-1">
+            <i class="icons icon-time mx-0"> </i>
+            <span class="caption mx-1"> {{t('VisitTime')}} : </span>
+            <strong class="mx-1"> {{t('Evening')}} </strong>
+          </div>
+          <div class="col-6 attribute my-1">
+            <i class="icons icon-cash mx-0"> </i>
+            <span class="caption mx-1"> {{t('Cost')}} : </span>
+            <strong class="mx-1"> 60 $ </strong>
+          </div>
+        </div>
+        <div id="map"> </div>
+      </div>
+    </div>
+    <div class="panel">
+      <c-toggle-button [items]="detailOptions" (onSelectionChange)="onSearchOptionChanged($event)" class="mt-2"> </c-toggle-button>
+    </div>
+    <div class="accordion">
+      <div data-id="scroll-content" id="detail-tab" class="accordion-item content-box px-4 py-3 mb-3">
+        <h2 class="accordion-header">
+          <button type="button" name="" onclick="" data-mdb-toggle="collapse" data-mdb-target="#detail-content" class="accordion-button" aria-expanded="true"> <i class="icons icon-info-2 mx-0"> </i> <span class="mx-2"> Detail </span> </button>
+        </h2>
+        <div id="detail-content" class="accordion-collapse collapse show">
+          <div class="accordion-body px-0 py-3">
+            <div class="list pb-3">
+              <h3 class="mb-3"> Professional Background </h3>
+              <p> Dr. Eddard Stark, Orthopedic and Spine Surgery Specialist. Arab Board Certificate of Orthopedic and Spine Surgery, Jordanian Board Certificate of Orthopedic &amp; Spine Surgery </p>
+            </div>
+            <div class="list pb-3">
+              <h3 class="mb-3"> Education </h3>
+              <ul data-type="circle" class="list-unstyled">
+                <li class="mb-1"> Bachelor of Medicine and Surgery, Misr University For Science And Technology, Egypt </li>
+                <li class="mb-1"> Residency-Orthopedic and Fracture Surgery, Specialty Hospital, Jordan </li>
+              </ul>
+            </div>
+            <div class="list pb-3">
+              <h3 class="mb-3"> Specialties </h3>
+              <ul data-type="circle" class="row list-unstyled mb-3">
+                <li class="col-6 mb-1"> <a href="#"> Orthopedic and Fracture Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Microscopic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Adult Orthopedics </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Arthroscopy and Sports injuries </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Adult Orthopedic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Bone Deformities </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Pediatric Orthopedic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Foot and Ankle Orthopedics </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Joint Replacement </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Hand and Upper Limb Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Osteopathic Medicine </a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-id="scroll-content" id="treatments-tab" class="accordion-item content-box px-4 py-3 mb-3">
+        <h2 class="accordion-header">
+          <button type="button" name="" onclick="" data-mdb-toggle="collapse" data-mdb-target="#treatments-content" class="accordion-button" aria-expanded="true"> <i class="icons icon-stethoscope mx-0"> </i> <span class="mx-2"> Treatments </span> </button>
+        </h2>
+        <div id="treatments-content" class="accordion-collapse collapse show">
+          <div class="accordion-body px-0 py-3">
+            <div class="list pb-3">
+              <ul data-type="circle" class="row list-unstyled mb-3">
+                <li class="col-6 mb-1"> <a href="#"> Orthopedic and Fracture Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Microscopic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Adult Orthopedics </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Arthroscopy and Sports injuries </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Adult Orthopedic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Bone Deformities </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Pediatric Orthopedic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Foot and Ankle Orthopedics </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Joint Replacement </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Hand and Upper Limb Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Osteopathic Medicine </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Orthopedic and Fracture Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Microscopic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Adult Orthopedics </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Arthroscopy and Sports injuries </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Adult Orthopedic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Bone Deformities </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Pediatric Orthopedic Surgery </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Foot and Ankle Orthopedics </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Joint Replacement </a> </li>
+                <li class="col-6 mb-1"> <a href="#"> Hand and Upper Limb Surgery </a> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-id="scroll-content" id="reviews-tab" class="accordion-item content-box px-4 py-3 mb-3">
+        <h2 class="accordion-header">
+          <button type="button" name="" onclick="" data-mdb-toggle="collapse" data-mdb-target="#reviews-content" class="accordion-button collapsed"> <i class="icons icon-review mx-0"> </i> <span class="mx-2"> Reviews </span> </button>
+        </h2>
+        <div id="reviews-content" class="accordion-collapse collapse">
+          <div class="accordion-body px-0 py-3"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main-search-template>
